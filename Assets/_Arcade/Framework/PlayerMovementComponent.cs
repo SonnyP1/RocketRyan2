@@ -14,11 +14,8 @@ public class PlayerMovementComponent : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        //_characterController.Move(new Vector3(_moveInput.x,0,_moveInput.y)*MoveSpeed*Time.deltaTime);
         UpdateRotation();
         if(_isBoostActive == true)
         {
