@@ -8,19 +8,24 @@ public class PlayerMovementComponent : MonoBehaviour
     [SerializeField] float MoveSpeed = 5f;
     [SerializeField] float RotationSpeed = 5f;
     CharacterController _characterController;
+    GameplayUIManager _gameplayUIManager;
+    public float boostCurrent = 100f;
+    float boostMax = 100f;
     Vector2 _moveInput;
     bool _isBoostActive = false;
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
+        _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
     }
     void Update()
     {
         UpdateRotation();
-        if(_isBoostActive == true)
+        if(_isBoostActive == true && boostCurrent >= 0)
         {
-
+            boostCurrent -= 0.1f;
             _characterController.Move(-transform.right * (MoveSpeed*2) * Time.deltaTime);
+            _gameplayUIManager.UpdateBoostSlider(boostCurrent / boostMax);
             return;
         }
         _characterController.Move(-transform.right * MoveSpeed * Time.deltaTime);

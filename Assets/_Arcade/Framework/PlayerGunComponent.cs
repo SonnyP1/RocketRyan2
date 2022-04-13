@@ -10,7 +10,6 @@ public class PlayerGunComponent : MonoBehaviour
 
     internal void Fire()
     {
-        Debug.Log("Fire!");
         GameObject newObject = Instantiate(ProjectileToSpawn, ProjectileSpawnPoint);
         newObject.transform.parent = null;
     }

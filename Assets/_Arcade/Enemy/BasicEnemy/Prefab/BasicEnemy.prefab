@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4404175832070378003}
   - component: {fileID: 5324775452836200188}
   - component: {fileID: 7747590589058100434}
-  m_Layer: 0
+  - component: {fileID: 794420694523829542}
+  m_Layer: 3
   m_Name: BasicEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530fdeeb54daaa04d93bcfa6bb483507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
 --- !u!195 &7747590589058100434
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -68,6 +68,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &794420694523829542
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2168716234552263944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.11, z: 1}
+  m_Center: {x: 0, y: 1.11, z: 0}
 --- !u!1 &3827601815386772824
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,8 +92,7 @@ GameObject:
   - component: {fileID: 1697361532500188521}
   - component: {fileID: 7436344818703815581}
   - component: {fileID: 8406681359363813006}
-  - component: {fileID: 1885641157024626887}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,17 +162,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1885641157024626887
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3827601815386772824}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
