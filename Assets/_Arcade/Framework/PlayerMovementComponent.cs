@@ -31,6 +31,11 @@ public class PlayerMovementComponent : MonoBehaviour
         _characterController.Move(-transform.right * MoveSpeed * Time.deltaTime);
     }
 
+    public void AddBoost(float value)
+    {
+        boostCurrent = Mathf.Clamp(boostCurrent + value,0,boostMax);
+        _gameplayUIManager.UpdateBoostSlider(boostCurrent / boostMax);
+    }
     internal void UpdatedMoveInput(Vector2 moveInput)
     {
         _moveInput = new Vector2(moveInput.x, -moveInput.y);

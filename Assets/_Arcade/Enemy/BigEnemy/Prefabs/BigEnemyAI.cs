@@ -60,6 +60,7 @@ public class BigEnemyAI : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, RandomRadius);
+        Gizmos.DrawWireSphere(PointsToSpawnEnemy[0].position, 0.2f);
     }
 
 
@@ -68,9 +69,13 @@ public class BigEnemyAI : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(SpawnTime);
-            
-            GameObject newEnemy = Instantiate(EnemyToSpawn, PointsToSpawnEnemy[0]);
-            newEnemy.transform.parent = null;
+
+            Collider[] thingsColliding = Physics.OverlapSphere(PointsToSpawnEnemy[0].position,0.2f);
+            if(thingsColliding.Length == 1)
+            {
+                GameObject newEnemy = Instantiate(EnemyToSpawn, PointsToSpawnEnemy[0]);
+                newEnemy.transform.parent = null;
+            }
         }
     }
 }
