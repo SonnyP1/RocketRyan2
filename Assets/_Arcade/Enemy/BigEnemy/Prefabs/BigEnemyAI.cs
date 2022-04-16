@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BigEnemyAI : MonoBehaviour
+public class BigEnemyAI : Enemy
 {
     [SerializeField] float SpawnTime = 2f;
     [SerializeField] GameObject EnemyToSpawn;
@@ -13,8 +13,9 @@ public class BigEnemyAI : MonoBehaviour
     NavMeshAgent _navMeshAgent;
     Player _player;
 
-    private void Start()
+    override public void Start()
     {
+        base.Start();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _player = FindObjectOfType<Player>();
         SpawnArea.radius = RandomRadius;

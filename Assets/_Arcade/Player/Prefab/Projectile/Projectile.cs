@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Debug.Log("Destroy Enemy");
-            Destroy(other.gameObject);
+            other.GetComponent<Enemy>().BlowUp();
         }
         Destroy(gameObject);
     }

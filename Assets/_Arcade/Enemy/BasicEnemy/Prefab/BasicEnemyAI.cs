@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BasicEnemyAI : MonoBehaviour
+public class BasicEnemyAI : Enemy
 {
     NavMeshAgent _navMeshAgent;
     Player _player;
-    private void Start()
+    override public void Start()
     {
+        base.Start();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _player = FindObjectOfType<Player>();
     }
