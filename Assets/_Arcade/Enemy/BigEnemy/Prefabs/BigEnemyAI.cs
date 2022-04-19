@@ -6,13 +6,19 @@ using UnityEngine.AI;
 public class BigEnemyAI : Enemy
 {
     [SerializeField] float SpawnTime = 2f;
-    [SerializeField] GameObject EnemyToSpawn;
+    [SerializeField] GameObject[] EnemyToSpawn;
     [SerializeField] float RandomRadius;
     [SerializeField] Transform[] PointsToSpawnEnemy;
     [SerializeField] SphereCollider SpawnArea;
     NavMeshAgent _navMeshAgent;
     Player _player;
+    float spawningRate = 0f;
 
+    public void SetSpawningRate(float diffucultlyIndex)
+    {
+        spawningRate = diffucultlyIndex/10;
+        Debug.Log("Level spawning rate is : " + spawningRate);
+    }
     override public void Start()
     {
         base.Start();
@@ -74,7 +80,16 @@ public class BigEnemyAI : Enemy
             Collider[] thingsColliding = Physics.OverlapSphere(PointsToSpawnEnemy[0].position,0.2f);
             if(thingsColliding.Length == 1)
             {
-                GameObject newEnemy = Instantiate(EnemyToSpawn, PointsToSpawnEnemy[0]);
+                float randomNum = (Random.Range(0.0f, 10f)) / 10;
+                GameObject newEnemy = null;
+                if (randomNum <= spawningRate)
+                {
+                    newEnemy = Instantiate(EnemyToSpawn[1], PointsToSpawnEnemy[0]);
+                }
+                else
+                {
+                    newEnemy = Instantiate(EnemyToSpawn[0], PointsToSpawnEnemy[0]);
+                }
                 newEnemy.transform.parent = null;
             }
         }
