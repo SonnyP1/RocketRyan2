@@ -61,4 +61,9 @@ public class Player : MonoBehaviour
         _moveInput = obj.ReadValue<Vector2>();
         _playerMovementComp.UpdatedMoveInput(_moveInput);
     }
+
+    public void DisablePlayerControls()
+    {
+        _playerInput.Gameplay.Disable();
+    }
 }

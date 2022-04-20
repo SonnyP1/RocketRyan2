@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour
     }
     virtual public void InitEnemy()
     {
-        Debug.Log("Init Enemy");
         if(_scoreKeeper == null)
         {
             return;

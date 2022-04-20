@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2345875924260068437}
   - component: {fileID: 5443219286352503853}
   - component: {fileID: 683672199717967575}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BasicProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 470063918804560428}
   - component: {fileID: 7927576421325148453}
   - component: {fileID: 8965730051328736721}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

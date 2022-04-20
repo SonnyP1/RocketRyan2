@@ -12,7 +12,7 @@ public class BigEnemyAI : Enemy
     [SerializeField] SphereCollider SpawnArea;
     NavMeshAgent _navMeshAgent;
     Player _player;
-    float spawningRate = 0f;
+    [SerializeField] float spawningRate = 0f;
 
     public void SetSpawningRate(float diffucultlyIndex)
     {
@@ -84,7 +84,8 @@ public class BigEnemyAI : Enemy
                 GameObject newEnemy = null;
                 if (randomNum <= spawningRate)
                 {
-                    newEnemy = Instantiate(EnemyToSpawn[1], PointsToSpawnEnemy[0]);
+                    int randomEnemyTypeIndex = Random.Range(1, EnemyToSpawn.Length);
+                    newEnemy = Instantiate(EnemyToSpawn[randomEnemyTypeIndex], PointsToSpawnEnemy[0]);
                 }
                 else
                 {

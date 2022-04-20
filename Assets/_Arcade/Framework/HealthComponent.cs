@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,17 +9,36 @@ public class HealthComponent : MonoBehaviour
     [SerializeField] float CurrentHP;
     [SerializeField] float MaxHP;
     GameplayUIManager _gameplayUIManager;
+    internal void SetCurrentHealth(float currentHealthOfPlayer)
+    {
+        CurrentHP = currentHealthOfPlayer;
+        if (_gameplayUIManager == null)
+        {
+            _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
+        }
+        _gameplayUIManager.UpdateHealthSlider(CurrentHP / MaxHP);
+    }
+
+    internal float GetCurrentHealth()
+    {
+        return CurrentHP;
+    }
 
     private void Start()
     {
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
     }
-    private void AddToHealth(float newValue)
+    public void AddToHealth(float newValue)
     {
+        Debug.Log(CurrentHP +" Before dmg");
         CurrentHP = Mathf.Clamp(CurrentHP+newValue,0,MaxHP);
         _gameplayUIManager.UpdateHealthSlider(CurrentHP/MaxHP);
+        Debug.Log(CurrentHP +" After dmg");
     }
 
+    private void Update()
+    {
+    }
     private void OnTriggerEnter(Collider other)
     {
         int otherLayerAsDigit = other.gameObject.layer;
@@ -29,4 +49,5 @@ public class HealthComponent : MonoBehaviour
             AddToHealth(-1);
         }
     }
+
 }

@@ -5,8 +5,14 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float Speed = 5f;
+    //float 
     void Start()
     {
+    }
+
+    public void SetSpeedMultiplier()
+    { 
+
     }
     private void Update()
     {
@@ -15,7 +21,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if(other.gameObject.layer == LayerMask.NameToLayer("IgnoreThis"))
+        if(other.gameObject.layer == LayerMask.NameToLayer("IgnoreThis") || other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             return;
         }

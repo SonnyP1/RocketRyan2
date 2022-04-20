@@ -13,6 +13,20 @@ public class PlayerMovementComponent : MonoBehaviour
     float boostMax = 100f;
     Vector2 _moveInput;
     bool _isBoostActive = false;
+    internal void SetCurrentBoost(float currentBoost)
+    {
+        boostCurrent = currentBoost;
+        if(_gameplayUIManager == null)
+        {
+            _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
+        }
+        _gameplayUIManager.UpdateBoostSlider(boostCurrent / boostMax);
+    }
+
+    internal float GetCurrentBoost()
+    {
+        return boostCurrent;
+    }
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
@@ -70,4 +84,10 @@ public class PlayerMovementComponent : MonoBehaviour
 
         return CameraRight * -input.y + -FrameUp * input.x;
     }
+
+    internal void StopMovement()
+    {
+        MoveSpeed = 0;
+    }
+
 }

@@ -8,13 +8,16 @@ public class ScoreKeeper : MonoBehaviour
 {
     List<GameObject> AllEnemies = new List<GameObject>();
     GameplayUIManager _gameplayUIManager;
+    Player _player;
     int levelIndex = 1;
     int score = 0;
     float difficultyIndex = 0;
+    bool isPlayerVictoryScreen = false;
+    float currentHealthOfPlayer = 0;
+    float currentBoost = 0;
 
     private void Start()
     {
-        Debug.Log("Called scorekeeper start");
         DontDestroyOnLoad(gameObject);
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
         if(_gameplayUIManager == null)
@@ -49,25 +52,50 @@ public class ScoreKeeper : MonoBehaviour
 
     private void Update()
     {
-        if(AllEnemies.Count == 0 && SceneManager.GetActiveScene().buildIndex != SceneManager.GetSceneByName("MainMenu_Scene").buildIndex)
+        if(!isPlayerVictoryScreen && AllEnemies.Count == 0 && SceneManager.GetActiveScene().buildIndex != SceneManager.GetSceneByName("MainMenu_Scene").buildIndex)
         {
             levelIndex++;
             levelIndex = (levelIndex >= SceneManager.sceneCountInBuildSettings) ? 1 : levelIndex;
             difficultyIndex++;
-            SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
-            SceneManager.sceneLoaded += OnNewLevelLoad;
+
+            StartCoroutine(PlayerVictoryScream());
         }
     }
 
     private void OnNewLevelLoad(Scene arg0, LoadSceneMode arg1)
     {
+        _player = FindObjectOfType<Player>();
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
         _gameplayUIManager.UpdateScoreCountTxt(score);
+
+        _player.GetComponent<HealthComponent>().SetCurrentHealth(currentHealthOfPlayer);
+        _player.GetComponent<PlayerMovementComponent>().SetCurrentBoost(currentBoost);
 
         BigEnemyAI[] allBigEnemies = FindObjectsOfType<BigEnemyAI>();
         foreach(BigEnemyAI bigEnemy in allBigEnemies)
         {
             bigEnemy.SetSpawningRate(difficultyIndex);
         }
+        isPlayerVictoryScreen = false;
+    }
+
+    IEnumerator PlayerVictoryScream()
+    {
+        isPlayerVictoryScreen = true;
+        if(_player == null)
+        {
+            _player = FindObjectOfType<Player>();
+        }
+
+        currentHealthOfPlayer = _player.GetComponent<HealthComponent>().GetCurrentHealth();
+        currentBoost = _player.GetComponent<PlayerMovementComponent>().GetCurrentBoost();
+
+        _player.DisablePlayerControls();
+
+        _player.GetComponent<PlayerMovementComponent>().StopMovement();
+        _player.GetComponent<PlayerAnimatorHandler>().PlayVictoryAnimation();
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
+        SceneManager.sceneLoaded += OnNewLevelLoad;
     }
 }
