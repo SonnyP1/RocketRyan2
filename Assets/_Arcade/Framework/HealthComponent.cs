@@ -6,38 +6,41 @@ using UnityEngine;
 public class HealthComponent : MonoBehaviour
 {
     [SerializeField] LayerMask DamagableLayerMask;
-    [SerializeField] float CurrentHP;
     [SerializeField] float MaxHP;
     GameplayUIManager _gameplayUIManager;
-    internal void SetCurrentHealth(float currentHealthOfPlayer)
-    {
-        CurrentHP = currentHealthOfPlayer;
-        if (_gameplayUIManager == null)
-        {
-            _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
-        }
-        _gameplayUIManager.UpdateHealthSlider(CurrentHP / MaxHP);
-    }
+    float _currentHP =0;
 
     internal float GetCurrentHealth()
     {
-        return CurrentHP;
+        return _currentHP;
     }
 
     private void Start()
     {
+        ScoreKeeper scoreKeeper = FindObjectOfType<ScoreKeeper>();
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
+
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        if (scoreKeeper.GetCurrentGlobalHealth() > 0)
+        {
+            _currentHP = scoreKeeper.GetCurrentGlobalHealth();
+        }
+        else
+        {
+            _currentHP = MaxHP;
+        }
+
+        UpdateHealthUI();
     }
     public void AddToHealth(float newValue)
     {
-        Debug.Log(CurrentHP +" Before dmg");
-        CurrentHP = Mathf.Clamp(CurrentHP+newValue,0,MaxHP);
-        _gameplayUIManager.UpdateHealthSlider(CurrentHP/MaxHP);
-        Debug.Log(CurrentHP +" After dmg");
+        _currentHP = Mathf.Clamp(_currentHP + newValue,0,MaxHP);
+        UpdateHealthUI();
     }
 
-    private void Update()
+    public void UpdateHealthUI()
     {
+        _gameplayUIManager.UpdateHealthSlider(_currentHP / MaxHP);
     }
     private void OnTriggerEnter(Collider other)
     {

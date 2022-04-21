@@ -9,37 +9,41 @@ public class PlayerMovementComponent : MonoBehaviour
     [SerializeField] float RotationSpeed = 5f;
     CharacterController _characterController;
     GameplayUIManager _gameplayUIManager;
-    public float boostCurrent = 100f;
+    float _boostCurrent = 0f;
     float boostMax = 100f;
     Vector2 _moveInput;
     bool _isBoostActive = false;
-    internal void SetCurrentBoost(float currentBoost)
-    {
-        boostCurrent = currentBoost;
-        if(_gameplayUIManager == null)
-        {
-            _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
-        }
-        _gameplayUIManager.UpdateBoostSlider(boostCurrent / boostMax);
-    }
 
     internal float GetCurrentBoost()
     {
-        return boostCurrent;
+        return _boostCurrent;
     }
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
+
+        ScoreKeeper scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        if (scoreKeeper.GetCurrentBoostGlobal() > 0)
+        {
+            _boostCurrent = scoreKeeper.GetCurrentBoostGlobal();
+        }
+        else
+        {
+            _boostCurrent = boostMax;
+        }
+        UpdateBoostUI();
     }
+
+
     void Update()
     {
         UpdateRotation();
-        if(_isBoostActive == true && boostCurrent >= 0)
+        if(_isBoostActive == true && _boostCurrent >= 0)
         {
-            boostCurrent -= 0.1f;
+            _boostCurrent -= 0.1f;
             _characterController.Move(-transform.right * (MoveSpeed*2) * Time.deltaTime);
-            _gameplayUIManager.UpdateBoostSlider(boostCurrent / boostMax);
+            UpdateBoostUI();
             return;
         }
         _characterController.Move(-transform.right * MoveSpeed * Time.deltaTime);
@@ -47,9 +51,11 @@ public class PlayerMovementComponent : MonoBehaviour
 
     public void AddBoost(float value)
     {
-        boostCurrent = Mathf.Clamp(boostCurrent + value,0,boostMax);
-        _gameplayUIManager.UpdateBoostSlider(boostCurrent / boostMax);
+        _boostCurrent = Mathf.Clamp(_boostCurrent + value,0,boostMax);
+        UpdateBoostUI();
     }
+
+
     internal void UpdatedMoveInput(Vector2 moveInput)
     {
         _moveInput = new Vector2(moveInput.x, -moveInput.y);
@@ -77,6 +83,10 @@ public class PlayerMovementComponent : MonoBehaviour
         _isBoostActive = true;
     }
 
+    void UpdateBoostUI()
+    {
+        _gameplayUIManager.UpdateBoostSlider(_boostCurrent / boostMax);
+    }
     private Vector3 InputAxisToWorldDir(Vector2 input)
     {
         Vector3 CameraRight = Camera.main.transform.right;

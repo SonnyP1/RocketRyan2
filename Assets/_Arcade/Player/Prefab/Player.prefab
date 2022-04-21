@@ -338,7 +338,7 @@ MonoBehaviour:
   DamagableLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  CurrentHP: 10
+  StartingHP: 10
   MaxHP: 10
 --- !u!114 &6474014870992790781
 MonoBehaviour:
@@ -572,7 +572,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5608868932148723822}
-  m_LocalRotation: {x: 0.0011333964, y: 0.83462346, z: -0.55081713, w: 0.0017173745}
+  m_LocalRotation: {x: 0.0011333202, y: 0.83462346, z: -0.55081713, w: 0.0017172591}
   m_LocalPosition: {x: -0.044999916, y: 9.143, z: 4.1310005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -641,7 +641,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8394054597210508600}
-  m_LocalRotation: {x: 0.0011333964, y: 0.83462346, z: -0.55081713, w: 0.0017173745}
+  m_LocalRotation: {x: 0.0011333202, y: 0.83462346, z: -0.55081713, w: 0.0017172591}
   m_LocalPosition: {x: -0.044999916, y: 9.143, z: 4.1310005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

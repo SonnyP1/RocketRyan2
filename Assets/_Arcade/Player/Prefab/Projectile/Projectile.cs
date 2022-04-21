@@ -5,7 +5,6 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float Speed = 5f;
-    //float 
     void Start()
     {
     }
@@ -28,7 +27,6 @@ public class Projectile : MonoBehaviour
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Debug.Log("Destroy Enemy");
             other.GetComponent<Enemy>().BlowUp();
         }
         Destroy(gameObject);

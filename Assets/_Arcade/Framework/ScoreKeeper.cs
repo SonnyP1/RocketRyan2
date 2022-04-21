@@ -8,7 +8,6 @@ public class ScoreKeeper : MonoBehaviour
 {
     List<GameObject> AllEnemies = new List<GameObject>();
     GameplayUIManager _gameplayUIManager;
-    Player _player;
     int levelIndex = 1;
     int score = 0;
     float difficultyIndex = 0;
@@ -18,6 +17,7 @@ public class ScoreKeeper : MonoBehaviour
 
     private void Start()
     {
+        SceneManager.sceneLoaded += OnNewLevelLoad;
         DontDestroyOnLoad(gameObject);
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
         if(_gameplayUIManager == null)
@@ -64,12 +64,8 @@ public class ScoreKeeper : MonoBehaviour
 
     private void OnNewLevelLoad(Scene arg0, LoadSceneMode arg1)
     {
-        _player = FindObjectOfType<Player>();
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
         _gameplayUIManager.UpdateScoreCountTxt(score);
-
-        _player.GetComponent<HealthComponent>().SetCurrentHealth(currentHealthOfPlayer);
-        _player.GetComponent<PlayerMovementComponent>().SetCurrentBoost(currentBoost);
 
         BigEnemyAI[] allBigEnemies = FindObjectsOfType<BigEnemyAI>();
         foreach(BigEnemyAI bigEnemy in allBigEnemies)
@@ -82,20 +78,24 @@ public class ScoreKeeper : MonoBehaviour
     IEnumerator PlayerVictoryScream()
     {
         isPlayerVictoryScreen = true;
-        if(_player == null)
-        {
-            _player = FindObjectOfType<Player>();
-        }
+        Player player = FindObjectOfType<Player>();
+        currentHealthOfPlayer = player.GetComponent<HealthComponent>().GetCurrentHealth();
+        currentBoost = player.GetComponent<PlayerMovementComponent>().GetCurrentBoost();
 
-        currentHealthOfPlayer = _player.GetComponent<HealthComponent>().GetCurrentHealth();
-        currentBoost = _player.GetComponent<PlayerMovementComponent>().GetCurrentBoost();
+        player.DisablePlayerControls();
 
-        _player.DisablePlayerControls();
-
-        _player.GetComponent<PlayerMovementComponent>().StopMovement();
-        _player.GetComponent<PlayerAnimatorHandler>().PlayVictoryAnimation();
+        player.GetComponent<PlayerMovementComponent>().StopMovement();
+        player.GetComponent<PlayerAnimatorHandler>().PlayVictoryAnimation();
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
-        SceneManager.sceneLoaded += OnNewLevelLoad;
+    }
+
+    public float GetCurrentGlobalHealth()
+    {
+        return currentHealthOfPlayer;
+    }
+    public float GetCurrentBoostGlobal()
+    {
+        return currentBoost;
     }
 }

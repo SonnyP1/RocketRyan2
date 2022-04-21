@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _playerMovementComp = GetComponent<PlayerMovementComponent>();
-        _playerGunComponent = GetComponent<PlayerGunComponent>();
+        _playerGunComponent = GetComponent<PlayerGunComponent>();;
         SetUpPlayerInput();
     }
 
