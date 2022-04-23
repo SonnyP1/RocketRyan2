@@ -19,8 +19,12 @@ public class HealthComponent : MonoBehaviour
     {
         ScoreKeeper scoreKeeper = FindObjectOfType<ScoreKeeper>();
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
-
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        if(scoreKeeper == null || _gameplayUIManager == null)
+        {
+            return;
+        }
+
         if (scoreKeeper.GetCurrentGlobalHealth() > 0)
         {
             _currentHP = scoreKeeper.GetCurrentGlobalHealth();
@@ -36,6 +40,11 @@ public class HealthComponent : MonoBehaviour
     {
         _currentHP = Mathf.Clamp(_currentHP + newValue,0,MaxHP);
         UpdateHealthUI();
+        if(_currentHP == 0)
+        {
+            ScoreKeeper scoreKeeper = FindObjectOfType<ScoreKeeper>();
+            scoreKeeper.PlayerDeath();
+        }
     }
 
     public void UpdateHealthUI()

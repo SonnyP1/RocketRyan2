@@ -7,6 +7,8 @@ public class PlayerMovementComponent : MonoBehaviour
 {
     [SerializeField] float MoveSpeed = 5f;
     [SerializeField] float RotationSpeed = 5f;
+    [SerializeField] Transform BoostTransform;
+    [SerializeField] GameObject BoostEffect;
     CharacterController _characterController;
     GameplayUIManager _gameplayUIManager;
     float _boostCurrent = 0f;
@@ -22,8 +24,12 @@ public class PlayerMovementComponent : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
-
         ScoreKeeper scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        if(scoreKeeper == null)
+        {
+            return;
+        }
+
         if (scoreKeeper.GetCurrentBoostGlobal() > 0)
         {
             _boostCurrent = scoreKeeper.GetCurrentBoostGlobal();
@@ -43,6 +49,8 @@ public class PlayerMovementComponent : MonoBehaviour
         {
             _boostCurrent -= 0.1f;
             _characterController.Move(-transform.right * (MoveSpeed*2) * Time.deltaTime);
+            GameObject newBoostEffect = Instantiate(BoostEffect,BoostTransform);
+            newBoostEffect.transform.parent = null;
             UpdateBoostUI();
             return;
         }

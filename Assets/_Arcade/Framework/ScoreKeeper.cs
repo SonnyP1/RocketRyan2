@@ -90,6 +90,13 @@ public class ScoreKeeper : MonoBehaviour
         SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
     }
 
+    public void PlayerDeath()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.sceneLoaded -= OnNewLevelLoad;
+        Destroy(gameObject);
+    }
+
     public float GetCurrentGlobalHealth()
     {
         return currentHealthOfPlayer;
