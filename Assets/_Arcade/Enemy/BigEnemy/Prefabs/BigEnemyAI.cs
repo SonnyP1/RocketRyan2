@@ -28,6 +28,20 @@ public class BigEnemyAI : Enemy
         StartCoroutine(SpawnEnemy());
     }
 
+    public override void InitEnemy()
+    {
+        base.InitEnemy();
+        if(GetScoreKeeper().GetDifficultyIndex() >= 5)
+        {
+            Debug.Log("SPAWING RATE CUT IN HALF");
+            spawningRate = spawningRate/2;
+        }
+        if(GetScoreKeeper().GetDifficultyIndex() >= 10)
+        {
+            Debug.Log("SPAWING RATE CUT IN FOUR");
+            spawningRate = spawningRate / 4;
+        }
+    }
     private void Update()
     {
         if (_player == null)

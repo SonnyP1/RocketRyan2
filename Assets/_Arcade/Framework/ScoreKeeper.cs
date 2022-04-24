@@ -15,6 +15,11 @@ public class ScoreKeeper : MonoBehaviour
     float currentHealthOfPlayer = 0;
     float currentBoost = 0;
 
+    public float GetDifficultyIndex()
+    {
+        return difficultyIndex;
+    }
+
     private void Start()
     {
         SceneManager.sceneLoaded += OnNewLevelLoad;

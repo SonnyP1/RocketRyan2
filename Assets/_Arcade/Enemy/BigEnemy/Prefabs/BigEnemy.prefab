@@ -312,10 +312,15 @@ MonoBehaviour:
   EnemyToSpawn:
   - {fileID: 2168716234552263944, guid: e66534275695ff946b6849202fb2ad9c, type: 3}
   - {fileID: 2168716234552263944, guid: 099348d280f25134bb14dd7b80914e51, type: 3}
+  - {fileID: 2168716234552263944, guid: ff746048bc4da0e4a83ce57f7764fdf8, type: 3}
+  - {fileID: 2168716234552263944, guid: 302c85e338661024d86568a00c7a5811, type: 3}
+  - {fileID: 2168716234552263944, guid: 3a9780d4773d9074ca4e8c3d281b84e6, type: 3}
+  - {fileID: 2168716234552263944, guid: 589fc036c7901944fa2ca53254182fdc, type: 3}
   RandomRadius: 10
   PointsToSpawnEnemy:
   - {fileID: 6153953935505340118}
   SpawnArea: {fileID: 4665354234014194160}
+  spawningRate: 0
 --- !u!65 &2850131141481564347
 BoxCollider:
   m_ObjectHideFlags: 0

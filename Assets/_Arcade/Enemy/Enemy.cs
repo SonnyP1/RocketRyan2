@@ -5,6 +5,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     ScoreKeeper _scoreKeeper;
+    public ScoreKeeper GetScoreKeeper()
+    {
+        return _scoreKeeper;
+    }
     virtual public void Start()
     {
         _scoreKeeper = FindObjectOfType<ScoreKeeper>();
