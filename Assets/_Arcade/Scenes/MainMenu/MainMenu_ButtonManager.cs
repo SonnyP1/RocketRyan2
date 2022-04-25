@@ -29,11 +29,14 @@ public class MainMenu_ButtonManager : MonoBehaviour
 
     private void StartBtnClicked()
     {
-        SceneManager.LoadScene(2, LoadSceneMode.Single);
+        if(TextInputField.text.Length >= 1)
+        {
+            SceneManager.LoadScene(2, LoadSceneMode.Single);
+        }
     }
     private void LeaderBoardBtnClicked()
     {
-        //need to add this later
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
     private void ExitBtnClicked()
