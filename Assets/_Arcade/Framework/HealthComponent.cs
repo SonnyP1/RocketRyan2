@@ -6,10 +6,11 @@ using UnityEngine;
 public class HealthComponent : MonoBehaviour
 {
     [SerializeField] LayerMask DamagableLayerMask;
-    [SerializeField] float MaxHP;
+    [SerializeField] float MaxHP = 10f;
     [SerializeField] AudioSource HurtSound;
     GameplayUIManager _gameplayUIManager;
-    float _currentHP =0;
+    ScoreKeeper _scoreKeeper;
+    float _currentHP = 0;
 
     internal float GetCurrentHealth()
     {
@@ -18,19 +19,18 @@ public class HealthComponent : MonoBehaviour
 
     private void Start()
     {
-        ScoreKeeper scoreKeeper = FindObjectOfType<ScoreKeeper>();
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
-        scoreKeeper = FindObjectOfType<ScoreKeeper>();
-        if(scoreKeeper == null || _gameplayUIManager == null)
+        _scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        if(_scoreKeeper == null || _gameplayUIManager == null)
         {
             return;
         }
-
-        if (scoreKeeper.GetCurrentGlobalHealth() > 0)
-        {
-            _currentHP = scoreKeeper.GetCurrentGlobalHealth();
-        }
         else
+        {
+            _currentHP = _scoreKeeper.GetCurrentHealthGlobal();
+        }
+
+        if(_currentHP == 0)
         {
             _currentHP = MaxHP;
         }
@@ -47,6 +47,7 @@ public class HealthComponent : MonoBehaviour
             }
             _gameplayUIManager.HurtUIActive();
         }
+
         _currentHP = Mathf.Clamp(_currentHP + newValue,0,MaxHP);
         UpdateHealthUI();
         if(_currentHP == 0)
@@ -58,6 +59,7 @@ public class HealthComponent : MonoBehaviour
 
     public void UpdateHealthUI()
     {
+        _scoreKeeper.UpdateHealthOnGlobal(_currentHP);
         _gameplayUIManager.UpdateHealthSlider(_currentHP / MaxHP);
     }
     private void OnTriggerEnter(Collider other)

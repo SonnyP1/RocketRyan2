@@ -38,6 +38,10 @@ public class ScoreKeeper : MonoBehaviour
 
     }
 
+    internal float GetCurrentHealthGlobal()
+    {
+        return currentHealthOfPlayer;
+    }
 
     public void AddToEnemyList(GameObject newEnemy)
     {
@@ -58,6 +62,11 @@ public class ScoreKeeper : MonoBehaviour
         }
         _gameplayUIManager.UpdateEnemyCountTxt(AllEnemies.Count);
         _gameplayUIManager.UpdateScoreCountTxt(score);
+    }
+
+    public void UpdateHealthOnGlobal(float currentHP)
+    {
+        currentHealthOfPlayer = currentHP;
     }
 
     private void Update()
@@ -96,11 +105,9 @@ public class ScoreKeeper : MonoBehaviour
     {
         isPlayerVictoryScreen = true;
         Player player = FindObjectOfType<Player>();
-        currentHealthOfPlayer = player.GetComponent<HealthComponent>().GetCurrentHealth();
-        currentBoost = player.GetComponent<PlayerMovementComponent>().GetCurrentBoost();
-
         player.DisablePlayerControls();
 
+        currentBoost = player.GetComponent<PlayerMovementComponent>().GetCurrentBoost();
         player.GetComponent<PlayerMovementComponent>().StopMovement();
         player.GetComponent<PlayerAnimatorHandler>().PlayVictoryAnimation();
         yield return new WaitForSeconds(2f);
@@ -112,10 +119,6 @@ public class ScoreKeeper : MonoBehaviour
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
-    public float GetCurrentGlobalHealth()
-    {
-        return currentHealthOfPlayer;
-    }
     public float GetCurrentBoostGlobal()
     {
         return currentBoost;

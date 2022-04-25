@@ -10,7 +10,6 @@ public class Shield : Enemy
     }
     public override void BlowUp()
     {
-        Debug.Log("Blow up Shield");
         Destroy(gameObject);
     }
 }

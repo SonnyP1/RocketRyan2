@@ -87,16 +87,12 @@ public class PlayfabManager : MonoBehaviour
 
     private void OnLeaderboardGet(GetLeaderboardResult results)
     {
-        /*
-        foreach(var item in results.Leaderboard)
-        {
-            Debug.Log($"{item.Position} {item.PlayFabId} {item.StatValue}");
-        }
-        */
         if(rowParent == null)
         {
             return;
         }
+
+
         foreach (Transform item in rowParent)
         {
             Destroy(item.gameObject);
