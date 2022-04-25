@@ -10,15 +10,16 @@ public class PlayfabManager : MonoBehaviour
 {
     [SerializeField] GameObject rowPrefab;
     [SerializeField] Transform rowParent;
-    [SerializeField]
+    string displayName = "RocketRyan";
     int score = 0;
-    public void Login(int newScore)
+    public void Login(int newScore, string newName)
     {
         score = newScore;
-
+        displayName = newName;
+        Debug.Log(displayName);
         var request = new LoginWithCustomIDRequest
         {
-            CustomId = SystemInfo.deviceUniqueIdentifier,
+            CustomId = displayName,
             CreateAccount = true
         };
         PlayFabClientAPI.LoginWithCustomID(request, OnSuccess, OnError);
@@ -26,7 +27,7 @@ public class PlayfabManager : MonoBehaviour
     private void OnSuccess(LoginResult obj)
     {
         Debug.Log("SUCCESS LOGIN");
-        SendLeaderboard(score);
+        NewName();
     }
 
     private void OnError(PlayFabError error)
@@ -49,6 +50,21 @@ public class PlayfabManager : MonoBehaviour
             }
         };
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+    }
+
+    private void NewName()
+    {
+        var request = new UpdateUserTitleDisplayNameRequest
+        {
+            DisplayName = displayName,
+        };
+        PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnDisplayNameUpdate, OnError);
+    }
+
+    private void OnDisplayNameUpdate(UpdateUserTitleDisplayNameResult obj)
+    {
+        Debug.Log("Updated display name!");
+        SendLeaderboard(score);
     }
 
     private void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result)
@@ -87,7 +103,7 @@ public class PlayfabManager : MonoBehaviour
             GameObject newRow = Instantiate(rowPrefab, rowParent);
             Text[] texts = newRow.GetComponentsInChildren<Text>();
             texts[0].text = (item.Position + 1).ToString();
-            texts[1].text = item.PlayFabId.ToString();
+            texts[1].text = item.DisplayName.ToString();
             texts[2].text = item.StatValue.ToString();
 
             Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);

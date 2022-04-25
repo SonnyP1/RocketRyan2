@@ -14,6 +14,11 @@ public class ScoreKeeper : MonoBehaviour
     bool isPlayerVictoryScreen = false;
     float currentHealthOfPlayer = 0;
     float currentBoost = 0;
+    string _displayName;
+    public void SetDisplayName(string newDisplayName)
+    {
+        _displayName = newDisplayName;
+    }
 
     public float GetDifficultyIndex()
     {
@@ -71,7 +76,7 @@ public class ScoreKeeper : MonoBehaviour
     {
         if(arg0.buildIndex == 1)
         {
-            FindObjectOfType<PlayfabManager>().Login(score);
+            FindObjectOfType<PlayfabManager>().Login(score,_displayName);
             Destroy(gameObject);
             return;
         }
