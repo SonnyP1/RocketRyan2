@@ -40,6 +40,13 @@ public class Player : MonoBehaviour
         _playerInput.Gameplay.Boost.canceled += OnBoostDeactive;
 
         _playerInput.Gameplay.Shoot.performed += OnShootPressed;
+
+        _playerInput.Gameplay.Exit.performed += OnExitPressed;
+    }
+
+    private void OnExitPressed(InputAction.CallbackContext obj)
+    {
+        Application.Quit();
     }
 
     private void OnShootPressed(InputAction.CallbackContext obj)

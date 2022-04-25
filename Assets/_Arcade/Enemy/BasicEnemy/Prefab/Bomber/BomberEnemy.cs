@@ -76,13 +76,20 @@ public class BomberEnemy : Enemy
     }
     IEnumerator BomberTicking()
     {
+
         yield return new WaitForSeconds(.5f);
         spriteOne.color = new Color(0, 0, 0,255);
         tickTimer++;
-        TickSound.Play();
+        if (TickSound != null)
+        {
+            TickSound.Play();
+        }
         yield return new WaitForSeconds(.5f);
         tickTimer++;
-        TickSound.Play();
+        if (TickSound != null)
+        {
+            TickSound.Play();
+        }
         spriteOne.color = Color.yellow;
         StartCoroutine(BomberTicking());
     }

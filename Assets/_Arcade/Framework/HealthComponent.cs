@@ -7,6 +7,7 @@ public class HealthComponent : MonoBehaviour
 {
     [SerializeField] LayerMask DamagableLayerMask;
     [SerializeField] float MaxHP;
+    [SerializeField] AudioSource HurtSound;
     GameplayUIManager _gameplayUIManager;
     float _currentHP =0;
 
@@ -38,6 +39,11 @@ public class HealthComponent : MonoBehaviour
     }
     public void AddToHealth(float newValue)
     {
+        if(newValue < 0)
+        {
+            HurtSound.Play();
+            _gameplayUIManager.HurtUIActive();
+        }
         _currentHP = Mathf.Clamp(_currentHP + newValue,0,MaxHP);
         UpdateHealthUI();
         if(_currentHP == 0)

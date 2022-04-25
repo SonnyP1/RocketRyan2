@@ -70,6 +70,7 @@ public class PlayfabManager : MonoBehaviour
     private void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result)
     {
         Debug.Log("Succesfull leaderboard sent");
+        GetLeaderboard();
     }
 
 
@@ -92,14 +93,20 @@ public class PlayfabManager : MonoBehaviour
             Debug.Log($"{item.Position} {item.PlayFabId} {item.StatValue}");
         }
         */
-
         foreach (Transform item in rowParent)
         {
             Destroy(item.gameObject);
         }
-
+        
+        int i = 0;
         foreach (var item in results.Leaderboard)
         {
+            i++;
+            if (i > 10)
+            {
+                break;
+            }
+
             GameObject newRow = Instantiate(rowPrefab, rowParent);
             Text[] texts = newRow.GetComponentsInChildren<Text>();
             texts[0].text = (item.Position + 1).ToString();
