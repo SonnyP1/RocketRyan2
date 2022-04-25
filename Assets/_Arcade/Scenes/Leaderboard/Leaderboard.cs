@@ -7,18 +7,20 @@ using UnityEngine.SceneManagement;
 
 public class Leaderboard : MonoBehaviour
 {
+
+    [SerializeField] PlayfabManager PlayFabManager;
     [SerializeField] Button BackToMainMenuBtn;
-    [SerializeField] Button RestartBtn;
+    [SerializeField] Button RefreshBtn;
 
     private void Start()
     {
         BackToMainMenuBtn.onClick.AddListener(OnMainMenuBtnClick);
-        RestartBtn.onClick.AddListener(OnRestartBtnClick);
+        RefreshBtn.onClick.AddListener(OnRefreshBtnClick);
     }
 
-    private void OnRestartBtnClick()
+    private void OnRefreshBtnClick()
     {
-        SceneManager.LoadScene(1,LoadSceneMode.Single);
+        PlayFabManager.GetLeaderboard();
     }
 
     private void OnMainMenuBtnClick()

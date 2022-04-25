@@ -8,7 +8,7 @@ public class ScoreKeeper : MonoBehaviour
 {
     List<GameObject> AllEnemies = new List<GameObject>();
     GameplayUIManager _gameplayUIManager;
-    int levelIndex = 1;
+    int levelIndex = 2;
     int score = 0;
     float difficultyIndex = 0;
     bool isPlayerVictoryScreen = false;
@@ -60,7 +60,7 @@ public class ScoreKeeper : MonoBehaviour
         if(!isPlayerVictoryScreen && AllEnemies.Count == 0 && SceneManager.GetActiveScene().buildIndex != SceneManager.GetSceneByName("MainMenu_Scene").buildIndex)
         {
             levelIndex++;
-            levelIndex = (levelIndex >= SceneManager.sceneCountInBuildSettings) ? 1 : levelIndex;
+            levelIndex = (levelIndex >= SceneManager.sceneCountInBuildSettings) ? 2 : levelIndex;
             difficultyIndex++;
 
             StartCoroutine(PlayerVictoryScream());
@@ -69,6 +69,12 @@ public class ScoreKeeper : MonoBehaviour
 
     private void OnNewLevelLoad(Scene arg0, LoadSceneMode arg1)
     {
+        if(arg0.buildIndex == 1)
+        {
+            FindObjectOfType<PlayfabManager>().Login(score);
+            Destroy(gameObject);
+            return;
+        }
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
         _gameplayUIManager.UpdateScoreCountTxt(score);
 
@@ -97,9 +103,7 @@ public class ScoreKeeper : MonoBehaviour
 
     public void PlayerDeath()
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
-        SceneManager.sceneLoaded -= OnNewLevelLoad;
-        Destroy(gameObject);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
     public float GetCurrentGlobalHealth()

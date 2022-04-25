@@ -17,7 +17,7 @@ public class BigEnemyAI : Enemy
     public void SetSpawningRate(float diffucultlyIndex)
     {
         spawningRate = diffucultlyIndex/10;
-        Debug.Log("Level spawning rate is : " + spawningRate);
+        //Debug.Log("Level spawning rate is : " + spawningRate);
     }
     override public void Start()
     {

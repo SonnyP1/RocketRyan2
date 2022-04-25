@@ -18,7 +18,7 @@ public class MainMenu_ButtonManager : MonoBehaviour
     }
     private void StartBtnClicked()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
     private void LeaderBoardBtnClicked()
     {
