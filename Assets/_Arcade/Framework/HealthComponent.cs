@@ -41,7 +41,10 @@ public class HealthComponent : MonoBehaviour
     {
         if(newValue < 0)
         {
-            HurtSound.Play();
+            if(HurtSound != null)
+            {
+                HurtSound.Play();
+            }
             _gameplayUIManager.HurtUIActive();
         }
         _currentHP = Mathf.Clamp(_currentHP + newValue,0,MaxHP);

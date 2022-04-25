@@ -31,8 +31,11 @@ public class Projectile : MonoBehaviour
         {
             other.GetComponent<Enemy>().BlowUp();
         }
-        BlowUpSound.Play();
-        BlowUpSound.transform.parent = null;
+        if(BlowUpSound != null)
+        {
+            BlowUpSound.Play();
+            BlowUpSound.transform.parent = null;
+        }
         GameObject newEffect = Instantiate(ProjectileEffect, transform);
         newEffect.transform.parent = null;
         Destroy(gameObject);

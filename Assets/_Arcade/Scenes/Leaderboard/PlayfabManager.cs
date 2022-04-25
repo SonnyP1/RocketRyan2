@@ -93,6 +93,10 @@ public class PlayfabManager : MonoBehaviour
             Debug.Log($"{item.Position} {item.PlayFabId} {item.StatValue}");
         }
         */
+        if(rowParent == null)
+        {
+            return;
+        }
         foreach (Transform item in rowParent)
         {
             Destroy(item.gameObject);

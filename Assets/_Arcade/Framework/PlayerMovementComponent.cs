@@ -10,6 +10,7 @@ public class PlayerMovementComponent : MonoBehaviour
     [SerializeField] Transform BoostTransform;
     [SerializeField] GameObject BoostEffect;
     [SerializeField] BoxCollider BoostCollider;
+    [SerializeField] GameObject BoostFrontEffect;
     CharacterController _characterController;
     GameplayUIManager _gameplayUIManager;
     float _boostCurrent = 0f;
@@ -27,7 +28,8 @@ public class PlayerMovementComponent : MonoBehaviour
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
         ScoreKeeper scoreKeeper = FindObjectOfType<ScoreKeeper>();
         BoostCollider.enabled = false;
-        if(scoreKeeper == null)
+        BoostFrontEffect.SetActive(false);
+        if (scoreKeeper == null)
         {
             return;
         }
@@ -55,8 +57,10 @@ public class PlayerMovementComponent : MonoBehaviour
             newBoostEffect.transform.parent = null;
             UpdateBoostUI();
             BoostCollider.enabled = true;
+            BoostFrontEffect.SetActive(true);
             return;
         }
+        BoostFrontEffect.SetActive(false);
         BoostCollider.enabled = false;
         _characterController.Move(-transform.right * MoveSpeed * Time.deltaTime);
     }
