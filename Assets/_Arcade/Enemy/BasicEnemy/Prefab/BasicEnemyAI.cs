@@ -21,6 +21,10 @@ public class BasicEnemyAI : Enemy
             _player = FindObjectOfType<Player>();
             return;
         }
-        _navMeshAgent.SetDestination(_player.transform.position);
+        if(GetTarget() == null)
+        {
+            SetNewTarget(_player.gameObject);
+        }
+        _navMeshAgent.SetDestination(GetTarget().transform.position);
     }
 }

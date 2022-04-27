@@ -10,11 +10,6 @@ public class Projectile : MonoBehaviour
     void Start()
     {
     }
-
-    public void SetSpeedMultiplier()
-    { 
-
-    }
     private void Update()
     {
         transform.position += transform.forward * Speed * Time.deltaTime;
@@ -31,6 +26,7 @@ public class Projectile : MonoBehaviour
         {
             other.GetComponent<Enemy>().BlowUp();
         }
+
         if(BlowUpSound != null)
         {
             BlowUpSound.Play();

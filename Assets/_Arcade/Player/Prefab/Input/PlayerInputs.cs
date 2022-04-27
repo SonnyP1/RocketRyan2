@@ -62,6 +62,15 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Bomb"",
+                    ""type"": ""Button"",
+                    ""id"": ""c833a8c8-3a08-438e-9ffe-3a44d9dbc388"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -218,6 +227,28 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27a04429-0357-477b-a8bf-200d95823593"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bomb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4e195d4-5d9f-428b-92f3-8604db28acd2"",
+                    ""path"": ""<Keyboard>/quote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bomb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -258,6 +289,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Gameplay_Boost = m_Gameplay.FindAction("Boost", throwIfNotFound: true);
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
         m_Gameplay_Exit = m_Gameplay.FindAction("Exit", throwIfNotFound: true);
+        m_Gameplay_Bomb = m_Gameplay.FindAction("Bomb", throwIfNotFound: true);
         // MainMenu
         m_MainMenu = asset.FindActionMap("MainMenu", throwIfNotFound: true);
         m_MainMenu_Start = m_MainMenu.FindAction("Start", throwIfNotFound: true);
@@ -324,6 +356,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Boost;
     private readonly InputAction m_Gameplay_Shoot;
     private readonly InputAction m_Gameplay_Exit;
+    private readonly InputAction m_Gameplay_Bomb;
     public struct GameplayActions
     {
         private @PlayerInputs m_Wrapper;
@@ -332,6 +365,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         public InputAction @Boost => m_Wrapper.m_Gameplay_Boost;
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
         public InputAction @Exit => m_Wrapper.m_Gameplay_Exit;
+        public InputAction @Bomb => m_Wrapper.m_Gameplay_Bomb;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -353,6 +387,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Exit.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExit;
                 @Exit.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExit;
                 @Exit.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExit;
+                @Bomb.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBomb;
+                @Bomb.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBomb;
+                @Bomb.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBomb;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -369,6 +406,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Exit.started += instance.OnExit;
                 @Exit.performed += instance.OnExit;
                 @Exit.canceled += instance.OnExit;
+                @Bomb.started += instance.OnBomb;
+                @Bomb.performed += instance.OnBomb;
+                @Bomb.canceled += instance.OnBomb;
             }
         }
     }
@@ -412,6 +452,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         void OnBoost(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
+        void OnBomb(InputAction.CallbackContext context);
     }
     public interface IMainMenuActions
     {

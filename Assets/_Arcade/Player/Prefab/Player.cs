@@ -42,6 +42,13 @@ public class Player : MonoBehaviour
         _playerInput.Gameplay.Shoot.performed += OnShootPressed;
 
         _playerInput.Gameplay.Exit.performed += OnExitPressed;
+
+        _playerInput.Gameplay.Bomb.performed += OnBombPressed;
+    }
+
+    private void OnBombPressed(InputAction.CallbackContext obj)
+    {
+        _playerGunComponent.DropBomb();
     }
 
     private void OnExitPressed(InputAction.CallbackContext obj)

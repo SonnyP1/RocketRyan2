@@ -14,6 +14,7 @@ public class ScoreKeeper : MonoBehaviour
     bool isPlayerVictoryScreen = false;
     float currentHealthOfPlayer = 0;
     float currentBoost = 0;
+    int currentBombAmmo = 0;
     string _displayName;
     public void SetDisplayName(string newDisplayName)
     {
@@ -42,6 +43,19 @@ public class ScoreKeeper : MonoBehaviour
     {
         return currentHealthOfPlayer;
     }
+    public void UpdateHealthOnGlobal(float currentHP)
+    {
+        currentHealthOfPlayer = currentHP;
+    }
+
+    public void UpdateBombAmmo(int currentAmmo)
+    {
+        currentBombAmmo = currentAmmo;
+    }
+    internal int GetCurrentBombAmmo()
+    {
+        return currentBombAmmo;
+    }
 
     public void AddToEnemyList(GameObject newEnemy)
     {
@@ -64,10 +78,6 @@ public class ScoreKeeper : MonoBehaviour
         _gameplayUIManager.UpdateScoreCountTxt(score);
     }
 
-    public void UpdateHealthOnGlobal(float currentHP)
-    {
-        currentHealthOfPlayer = currentHP;
-    }
 
     private void Update()
     {

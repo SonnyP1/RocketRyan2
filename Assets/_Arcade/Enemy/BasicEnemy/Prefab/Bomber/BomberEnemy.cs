@@ -42,7 +42,11 @@ public class BomberEnemy : Enemy
 
         if(_navMeshAgent.isActiveAndEnabled)
         {
-            _navMeshAgent.SetDestination(_player.transform.position);
+            if(GetTarget() == null)
+            {
+                SetNewTarget(_player.gameObject);
+            }
+            _navMeshAgent.SetDestination(GetTarget().transform.position);
         }
     }
 
@@ -76,7 +80,6 @@ public class BomberEnemy : Enemy
     }
     IEnumerator BomberTicking()
     {
-
         yield return new WaitForSeconds(.5f);
         spriteOne.color = new Color(0, 0, 0,255);
         tickTimer++;

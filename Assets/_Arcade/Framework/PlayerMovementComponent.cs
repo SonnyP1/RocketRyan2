@@ -64,6 +64,11 @@ public class PlayerMovementComponent : MonoBehaviour
         _characterController.Move(-transform.right * MoveSpeed * Time.deltaTime);
     }
 
+    public void ActivateBoostFrontEffect()
+    {
+        BoostFrontEffect.SetActive(true);
+    }
+
     public void AddBoost(float value)
     {
         _boostCurrent = Mathf.Clamp(_boostCurrent + value,0,boostMax);

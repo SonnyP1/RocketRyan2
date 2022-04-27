@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2756673591330884684}
   - component: {fileID: 9185826646018235978}
   - component: {fileID: 8526156708267905197}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 1750804497231652594}
   - component: {fileID: 1039223154060676957}
   - component: {fileID: 2650941194412636965}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 5910984086115159486}
   - component: {fileID: 4672557074578570410}
   - component: {fileID: 2593178751203703910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8169760752193759387}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BoostOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}

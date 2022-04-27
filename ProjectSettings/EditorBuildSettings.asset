@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/_Arcade/Scenes/Leaderboard/Leaderboard_Scene.unity
     guid: 74ae4c7d9c3ac304eb528858e8741f61
   - enabled: 1
+    path: Assets/_Arcade/Scenes/Levels/LevelFour_Scene.unity
+    guid: 7e05584280d77a241b0f4a8a59e9f35b
+  - enabled: 1
     path: Assets/_Arcade/Scenes/Levels/LevelOne_Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
@@ -20,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Arcade/Scenes/Levels/LevelThree_Scene.unity
     guid: 1ba876a6787e6cc47bb0c66661cdbd39
-  - enabled: 1
-    path: Assets/_Arcade/Scenes/Levels/LevelFour_Scene.unity
-    guid: 7e05584280d77a241b0f4a8a59e9f35b
   m_configObjects: {}

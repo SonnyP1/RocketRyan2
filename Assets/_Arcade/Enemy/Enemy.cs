@@ -6,7 +6,15 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] int ScoreToAdd = 10;
     ScoreKeeper _scoreKeeper;
-
+    GameObject target;
+    public GameObject GetTarget()
+    {
+        return target;
+    }
+    public void SetNewTarget(GameObject newTarget)
+    {
+        target = newTarget;
+    }
     public int GetScoreToAdd()
     {
         return ScoreToAdd;
