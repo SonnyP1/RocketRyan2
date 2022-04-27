@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59ddaa98720d564dbdae9f8a1bb83aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 10
 --- !u!65 &489113534890222169
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -205,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59ddaa98720d564dbdae9f8a1bb83aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 10
 --- !u!65 &2731585562338231766
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -314,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59ddaa98720d564dbdae9f8a1bb83aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 10
 --- !u!65 &3301187689964866026
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -376,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7616b3885783da64591f1939b8734392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 5
   ShieldParent: {fileID: 6967003960705215069}
   ShieldRotSpeed: 100
 --- !u!195 &7747590589058100434
@@ -509,6 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59ddaa98720d564dbdae9f8a1bb83aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 10
 --- !u!65 &2783828142907766707
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -700,6 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59ddaa98720d564dbdae9f8a1bb83aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 10
 --- !u!65 &854068903781843216
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -809,6 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59ddaa98720d564dbdae9f8a1bb83aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 10
 --- !u!65 &2072453394821615235
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -999,6 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59ddaa98720d564dbdae9f8a1bb83aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 10
 --- !u!65 &2549235805630358149
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1108,6 +1116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59ddaa98720d564dbdae9f8a1bb83aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 10
 --- !u!65 &3755241062165288889
 BoxCollider:
   m_ObjectHideFlags: 0

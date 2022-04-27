@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530fdeeb54daaa04d93bcfa6bb483507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 5
 --- !u!195 &7747590589058100434
 NavMeshAgent:
   m_ObjectHideFlags: 0

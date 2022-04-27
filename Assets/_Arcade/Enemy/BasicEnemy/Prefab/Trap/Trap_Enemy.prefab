@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94885d083f819624d97883861a62c4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 5
   TrapToSpawn: {fileID: 2917473021681840740, guid: aa7f5d4f550b7f04688820f5637289d1, type: 3}
   SpawnRate: 2
   TrapActiveRadius: 10

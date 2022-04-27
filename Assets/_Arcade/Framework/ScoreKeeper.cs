@@ -58,7 +58,7 @@ public class ScoreKeeper : MonoBehaviour
         if(AllEnemies.Contains(enemyToSub))
         {
             AllEnemies.Remove(enemyToSub);
-            score += 10;
+            score += enemyToSub.GetComponent<Enemy>().GetScoreToAdd();
         }
         _gameplayUIManager.UpdateEnemyCountTxt(AllEnemies.Count);
         _gameplayUIManager.UpdateScoreCountTxt(score);

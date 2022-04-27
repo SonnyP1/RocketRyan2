@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53190ba4b5e94c448716650b1708666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 0
   runAwayRadius: 10
   HealthOrb: {fileID: 8311643016890208467, guid: 442dc34808b89e84b8a5a5ec9c06f742, type: 3}
 --- !u!195 &7747590589058100434

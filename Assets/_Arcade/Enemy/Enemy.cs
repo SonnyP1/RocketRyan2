@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] int ScoreToAdd = 10;
     ScoreKeeper _scoreKeeper;
+
+    public int GetScoreToAdd()
+    {
+        return ScoreToAdd;
+    }
     public ScoreKeeper GetScoreKeeper()
     {
         return _scoreKeeper;

@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d1ad666db38f945b8c34f76db9bd2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreToAdd: 5
   ExplosionRadius: 4
   spriteOne: {fileID: 5796921115094501889}
   BomberEffect: {fileID: 4079042636652509103, guid: df37e6a4a2d33914f9bf695d821b294d, type: 3}
