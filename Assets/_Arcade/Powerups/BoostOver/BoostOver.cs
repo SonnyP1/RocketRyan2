@@ -13,6 +13,10 @@ public class BoostOver : MonoBehaviour
         if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Debug.Log("BoostOver Start");
+            if(other.GetComponent<HealthComponent>())
+            {
+                return;
+            }
             other.GetComponent<PlayerMovementComponent>().ActivateBoostFrontEffect();
             other.GetComponent<PlayerMovementComponent>().enabled = false;
             other.GetComponent<CharacterController>().enabled = false;

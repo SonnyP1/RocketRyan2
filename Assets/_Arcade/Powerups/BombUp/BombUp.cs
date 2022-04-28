@@ -12,8 +12,11 @@ public class BombUp : MonoBehaviour
             if (_playerGunComp == null)
             {
                 _playerGunComp = other.GetComponent<PlayerGunComponent>();
-                _playerGunComp.AddBomb();
-                Destroy(gameObject);
+                if(_playerGunComp != null)
+                {
+                    _playerGunComp.AddBomb();
+                    Destroy(gameObject);
+                }
             }
         }
     }

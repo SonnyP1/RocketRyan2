@@ -11,6 +11,7 @@ public class PlayerMovementComponent : MonoBehaviour
     [SerializeField] GameObject BoostEffect;
     [SerializeField] BoxCollider BoostCollider;
     [SerializeField] GameObject BoostFrontEffect;
+    [SerializeField] AudioSource BoostSoundEffect;
     CharacterController _characterController;
     GameplayUIManager _gameplayUIManager;
     float _boostCurrent = 0f;
@@ -52,6 +53,11 @@ public class PlayerMovementComponent : MonoBehaviour
         {
             _boostCurrent -= 0.1f;
             _characterController.Move(-transform.right * (MoveSpeed*2) * Time.deltaTime);
+            if(!BoostSoundEffect.isPlaying)
+            {
+                BoostSoundEffect.Play();
+                BoostSoundEffect.loop = true;
+            }
             GameObject newBoostEffect = Instantiate(BoostEffect,BoostTransform);
             newBoostEffect.transform.parent = null;
             UpdateBoostUI();
@@ -59,6 +65,7 @@ public class PlayerMovementComponent : MonoBehaviour
             BoostFrontEffect.SetActive(true);
             return;
         }
+        BoostSoundEffect.loop = false;
         BoostFrontEffect.SetActive(false);
         BoostCollider.enabled = false;
         _characterController.Move(-transform.right * MoveSpeed * Time.deltaTime);

@@ -11,6 +11,7 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] Slider HealthSlider;
     [SerializeField] Text EnemyCountTxt;
     [SerializeField] Text ScoreCountTxt;
+    [SerializeField] Image[] BombImages;
     Color alpha;
     Coroutine hurtUIOverlayCore;
 
@@ -53,5 +54,20 @@ public class GameplayUIManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         hurtImage.color -= alpha;
         hurtUIOverlayCore = null;
+    }
+
+    internal void UpdateBombUI(int bombAmmo)
+    {
+        Debug.Log("Update bomb UI");
+        foreach(Image image in BombImages)
+        {
+            image.enabled = false;
+        }
+
+        for(int i = 0; i<bombAmmo; i++)
+        {
+            Debug.Log("Turn on images");
+            BombImages[i].enabled = true;
+        }
     }
 }

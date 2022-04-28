@@ -8,6 +8,10 @@ public class BoostOverEnd : MonoBehaviour
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            if (other.GetComponent<HealthComponent>())
+            {
+                return;
+            }
             other.GetComponent<Rigidbody>().useGravity = false;
             other.GetComponent<CharacterController>().enabled = true;
             other.GetComponent<PlayerMovementComponent>().enabled = true;
