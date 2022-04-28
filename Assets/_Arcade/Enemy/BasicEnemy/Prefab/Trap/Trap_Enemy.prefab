@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreToAdd: 5
   TrapToSpawn: {fileID: 2917473021681840740, guid: aa7f5d4f550b7f04688820f5637289d1, type: 3}
-  SpawnRate: 2
+  SpawnRate: 0.5
   TrapActiveRadius: 10
   AttackParent: {fileID: 6967003960705215069}
   AttackRotSpeed: 100

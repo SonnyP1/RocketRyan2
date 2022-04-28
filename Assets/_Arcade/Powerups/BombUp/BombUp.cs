@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class BombUp : MonoBehaviour
 {
+    PlayerGunComponent _playerGunComp;
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            other.GetComponent<PlayerGunComponent>().AddBomb();
-            Destroy(gameObject);
+            if (_playerGunComp == null)
+            {
+                _playerGunComp = other.GetComponent<PlayerGunComponent>();
+                _playerGunComp.AddBomb();
+                Destroy(gameObject);
+            }
         }
     }
 }

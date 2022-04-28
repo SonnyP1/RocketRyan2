@@ -21,6 +21,10 @@ public class Trap : Enemy
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            return;
+        }
         BlowUp();
     }
 }

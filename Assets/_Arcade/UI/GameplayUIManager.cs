@@ -46,7 +46,10 @@ public class GameplayUIManager : MonoBehaviour
 
     IEnumerator HurtUIOverlay()
     {
-        hurtImage.color += alpha;
+        if(hurtImage.color.a < .4)
+        {
+            hurtImage.color += alpha;
+        }
         yield return new WaitForSeconds(0.5f);
         hurtImage.color -= alpha;
         hurtUIOverlayCore = null;

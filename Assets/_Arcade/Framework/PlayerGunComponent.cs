@@ -59,7 +59,7 @@ public class PlayerGunComponent : MonoBehaviour
     private void UpdateBombUI()
     {
         _scoreKeeper.UpdateBombAmmo(BomberAmmo);
-        Debug.Log("Current bomb ammo: " + BomberAmmo);
+        //Debug.Log("Current bomb ammo: " + BomberAmmo);
         //_gameplayUIManager.UpdateBombUI();
     }
 }

@@ -6,9 +6,11 @@ public class BoostOverEnd : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
-        other.GetComponent<Rigidbody>().useGravity = false;
-        other.GetComponent<CharacterController>().enabled = true;
-        other.GetComponent<PlayerMovementComponent>().enabled = true;
+        if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            other.GetComponent<Rigidbody>().useGravity = false;
+            other.GetComponent<CharacterController>().enabled = true;
+            other.GetComponent<PlayerMovementComponent>().enabled = true;
+        }
     }
 }

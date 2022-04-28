@@ -47,8 +47,7 @@ public class HealthComponent : MonoBehaviour
             }
             _gameplayUIManager.HurtUIActive();
         }
-
-        _currentHP = Mathf.Clamp(_currentHP + newValue,0,MaxHP);
+        _currentHP = Mathf.Clamp(_currentHP + newValue,0f,MaxHP);
         UpdateHealthUI();
         if(_currentHP == 0)
         {
@@ -64,10 +63,7 @@ public class HealthComponent : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        int otherLayerAsDigit = other.gameObject.layer;
-        int LayerMaskData = DamagableLayerMask;
-
-        if ((LayerMaskData & (1 << otherLayerAsDigit)) != 0)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             AddToHealth(-1);
         }
