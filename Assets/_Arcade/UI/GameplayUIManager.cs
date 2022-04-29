@@ -58,7 +58,6 @@ public class GameplayUIManager : MonoBehaviour
 
     internal void UpdateBombUI(int bombAmmo)
     {
-        Debug.Log("Update bomb UI");
         foreach(Image image in BombImages)
         {
             image.enabled = false;

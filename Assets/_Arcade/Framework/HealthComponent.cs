@@ -47,6 +47,7 @@ public class HealthComponent : MonoBehaviour
             }
             _gameplayUIManager.HurtUIActive();
         }
+
         _currentHP = Mathf.Clamp(_currentHP + newValue,0f,MaxHP);
         UpdateHealthUI();
         if(_currentHP == 0)

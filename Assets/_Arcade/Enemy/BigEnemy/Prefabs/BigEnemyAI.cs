@@ -10,6 +10,7 @@ public class BigEnemyAI : Enemy
     [SerializeField] float RandomRadius;
     [SerializeField] Transform[] PointsToSpawnEnemy;
     [SerializeField] SphereCollider SpawnArea;
+    [SerializeField] AudioSource SpawnSound;
     NavMeshAgent _navMeshAgent;
     Player _player;
     [SerializeField] float spawningRate = 0f;
@@ -106,6 +107,7 @@ public class BigEnemyAI : Enemy
                     newEnemy = Instantiate(EnemyToSpawn[0], PointsToSpawnEnemy[0]);
                 }
                 newEnemy.transform.parent = null;
+                SpawnSound.Play();
             }
         }
     }

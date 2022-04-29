@@ -12,8 +12,11 @@ public class Healthup : MonoBehaviour
             if(_healthComp == null)
             {
                 _healthComp = other.GetComponent<HealthComponent>();
-                _healthComp.AddToHealth(3f);
-                Destroy(gameObject);
+                if(_healthComp != null)
+                {
+                    _healthComp.AddToHealth(2);
+                    Destroy(gameObject);
+                }
             }
         }
     }
