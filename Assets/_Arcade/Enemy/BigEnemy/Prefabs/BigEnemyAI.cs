@@ -35,12 +35,12 @@ public class BigEnemyAI : Enemy
         if(GetScoreKeeper().GetDifficultyIndex() >= 5)
         {
             Debug.Log("SPAWING RATE CUT IN HALF");
-            spawningRate = spawningRate/2;
+            SpawnTime = SpawnTime / 2;
         }
         if(GetScoreKeeper().GetDifficultyIndex() >= 10)
         {
             Debug.Log("SPAWING RATE CUT IN FOUR");
-            spawningRate = spawningRate / 4;
+            SpawnTime = SpawnTime / 4;
         }
     }
     private void Update()
@@ -73,7 +73,7 @@ public class BigEnemyAI : Enemy
         float xPos = Random.Range(SpawnArea.bounds.min.x, SpawnArea.bounds.max.x);
         float zPos = Random.Range(SpawnArea.bounds.min.z, SpawnArea.bounds.max.z);
 
-        Vector3 randomXZ = new Vector3(xPos, 0, zPos);
+        Vector3 randomXZ = new Vector3(xPos, transform.position.y, zPos);
 
         return randomXZ;
     }

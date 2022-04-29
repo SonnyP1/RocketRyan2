@@ -76,6 +76,7 @@ public class PlayfabManager : MonoBehaviour
 
     public void GetLeaderboard()
     {
+        FindObjectOfType<Leaderboard>().UpdateLastScore(score);
         var request = new GetLeaderboardRequest
         {
             StatisticName = "RocketRyanScoreLeaderboard",

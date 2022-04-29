@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameplayUIManager : MonoBehaviour
 {
     [SerializeField] Image hurtImage;
     [SerializeField] Slider BoostSlider;
     [SerializeField] Slider HealthSlider;
-    [SerializeField] Text EnemyCountTxt;
-    [SerializeField] Text ScoreCountTxt;
+    [SerializeField] TextMeshProUGUI EnemyCountTxt;
+    [SerializeField] TextMeshProUGUI ScoreCountTxt;
     [SerializeField] Image[] BombImages;
     Color alpha;
     Coroutine hurtUIOverlayCore;

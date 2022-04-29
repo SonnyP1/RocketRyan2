@@ -92,6 +92,8 @@ MonoBehaviour:
   BomberEffect: {fileID: 4079042636652509103, guid: df37e6a4a2d33914f9bf695d821b294d, type: 3}
   BomberBlowUpSound: {fileID: 4573447862777042194}
   TickSound: {fileID: 5667488529977324029}
+  BombObject: {fileID: 1460125725082823675}
+  MaterialToEdit: {fileID: 2100000, guid: 998156de71264ed4a988d25526c3bd29, type: 2}
 --- !u!82 &5667488529977324029
 AudioSource:
   m_ObjectHideFlags: 0
@@ -641,6 +643,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 784852396f2d8bb48b07a18f9d6cb0cc, type: 3}
+--- !u!1 &1460125725082823675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 784852396f2d8bb48b07a18f9d6cb0cc, type: 3}
+  m_PrefabInstance: {fileID: 1765975436371007146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2236239735452922177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 784852396f2d8bb48b07a18f9d6cb0cc, type: 3}

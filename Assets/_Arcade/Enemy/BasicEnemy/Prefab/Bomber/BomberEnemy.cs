@@ -10,6 +10,8 @@ public class BomberEnemy : Enemy
     [SerializeField] GameObject BomberEffect;
     [SerializeField] AudioSource BomberBlowUpSound;
     [SerializeField] AudioSource TickSound;
+    [SerializeField] GameObject BombObject;
+    [SerializeField] Material MaterialToEdit;
     Coroutine bomberTicker;
     NavMeshAgent _navMeshAgent;
     Player _player;
@@ -17,6 +19,8 @@ public class BomberEnemy : Enemy
     override public void Start()
     {
         base.Start();
+        Material newAssignMat = new Material(MaterialToEdit);
+        BombObject.GetComponent<Renderer>().materials[1] = newAssignMat;
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _player = FindObjectOfType<Player>();
         bomberTicker = null;
@@ -81,7 +85,7 @@ public class BomberEnemy : Enemy
     IEnumerator BomberTicking()
     {
         yield return new WaitForSeconds(.5f);
-        spriteOne.color = new Color(0, 0, 0,255);
+        BombObject.GetComponent<Renderer>().material.color = Color.yellow;
         tickTimer++;
         if (TickSound != null)
         {
@@ -93,7 +97,7 @@ public class BomberEnemy : Enemy
         {
             TickSound.Play();
         }
-        spriteOne.color = Color.yellow;
+        BombObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0,255);
         StartCoroutine(BomberTicking());
     }
 

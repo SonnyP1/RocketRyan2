@@ -96,6 +96,7 @@ public class ScoreKeeper : MonoBehaviour
         if(arg0.buildIndex == 1)
         {
             FindObjectOfType<PlayfabManager>().Login(score,_displayName);
+            FindObjectOfType<Leaderboard>().UpdateLastScore(score);
             SceneManager.sceneLoaded -= OnNewLevelLoad;
             Destroy(gameObject);
             return;
