@@ -6,12 +6,15 @@ public class Bomb : MonoBehaviour
 {
     [SerializeField] float ExplosionRadius;
     [SerializeField] GameObject BombEffect;
-    [SerializeField] SpriteRenderer spriteOne;
+    [SerializeField] Material MaterialToEdit;
+    [SerializeField] GameObject BombObject;
     [SerializeField] AudioSource TickSound;
+    [SerializeField] GameObject PointLight;
     int tickTimer = 0;
-
     private void Start()
     {
+        Material newAssignMat = new Material(MaterialToEdit);
+        BombObject.GetComponent<Renderer>().material = newAssignMat;
         tickTimer = 0;
         Enemy[] allEnemies = FindAllEnemies();
         foreach(Enemy enemy in allEnemies)
@@ -50,7 +53,8 @@ public class Bomb : MonoBehaviour
     IEnumerator BomberTicking()
     {
         yield return new WaitForSeconds(.5f);
-        spriteOne.color = new Color(0, 0, 0, 255);
+        BombObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 255);
+        PointLight.SetActive(false);
         tickTimer++;
         if (TickSound != null)
         {
@@ -58,11 +62,12 @@ public class Bomb : MonoBehaviour
         }
         yield return new WaitForSeconds(.5f);
         tickTimer++;
+        PointLight.SetActive(true);
         if (TickSound != null)
         {
             TickSound.Play();
         }
-        spriteOne.color = Color.yellow;
+        BombObject.GetComponent<Renderer>().material.color = Color.yellow;
         StartCoroutine(BomberTicking());
     }
 

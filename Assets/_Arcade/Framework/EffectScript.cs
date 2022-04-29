@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EffectScript : MonoBehaviour
 {
+    [SerializeField] float DestoryTime= 2f;
     private void Start()
     {
         StartCoroutine(DestroySelf());
@@ -11,7 +12,7 @@ public class EffectScript : MonoBehaviour
 
     IEnumerator DestroySelf()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(DestoryTime);
         Destroy(gameObject);
     }
 }

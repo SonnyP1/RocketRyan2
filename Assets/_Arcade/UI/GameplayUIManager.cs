@@ -65,7 +65,6 @@ public class GameplayUIManager : MonoBehaviour
 
         for(int i = 0; i<bombAmmo; i++)
         {
-            Debug.Log("Turn on images");
             BombImages[i].enabled = true;
         }
     }
