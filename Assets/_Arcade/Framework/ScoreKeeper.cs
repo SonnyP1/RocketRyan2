@@ -93,13 +93,20 @@ public class ScoreKeeper : MonoBehaviour
 
     private void OnNewLevelLoad(Scene arg0, LoadSceneMode arg1)
     {
-        if(arg0.buildIndex == 1)
+
+        if (arg0.buildIndex == 1)
         {
             FindObjectOfType<PlayfabManager>().Login(score,_displayName);
             FindObjectOfType<Leaderboard>().UpdateLastScore(score);
             SceneManager.sceneLoaded -= OnNewLevelLoad;
             Destroy(gameObject);
             return;
+        }
+
+        if(score == 5000)
+        {
+            Player player = FindObjectOfType<Player>();
+            player.GetComponent<PlayerAnimatorHandler>().EasterEggActive();
         }
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
         _gameplayUIManager.UpdateScoreCountTxt(score);

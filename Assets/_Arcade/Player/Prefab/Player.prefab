@@ -369,6 +369,7 @@ Transform:
   - {fileID: 8126868321969055018}
   - {fileID: 2866027947739746650}
   - {fileID: 8172824555869945387}
+  - {fileID: 6574245732117950328}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -456,6 +457,7 @@ MonoBehaviour:
   VictorySprite: {fileID: 4275108397813214684}
   VictorySound: {fileID: 4496974452454419064}
   Music: {fileID: 1218289780}
+  EasterEgg: {fileID: 6455333796981198321}
 --- !u!54 &664709683
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -673,6 +675,88 @@ Transform:
   m_Father: {fileID: 7618442304807547040}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &3829932137236167064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6574245732117950328}
+  - component: {fileID: 6455333796981198321}
+  m_Layer: 0
+  m_Name: watkins(EasterEgg)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6574245732117950328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829932137236167064}
+  m_LocalRotation: {x: -0.49999982, y: -0.5000001, z: -0.5000002, w: 0.49999988}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.34770334, y: 0.34770334, z: 0.3524321}
+  m_Children: []
+  m_Father: {fileID: 2187181250887891891}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
+--- !u!212 &6455333796981198321
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829932137236167064}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 4e94110046ab8a04eac55a607628d3f1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.13, y: 3.07}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &4578613063332884641
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +945,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5608868932148723822}
-  m_LocalRotation: {x: 0.001133351, y: 0.8346234, z: -0.5508172, w: 0.0017173052}
+  m_LocalRotation: {x: 0.0011333963, y: 0.83462346, z: -0.55081713, w: 0.0017173744}
   m_LocalPosition: {x: -0.044999916, y: 9.143, z: 4.1310005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1092,7 +1176,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8394054597210508600}
-  m_LocalRotation: {x: 0.001133351, y: 0.8346234, z: -0.5508172, w: 0.0017173052}
+  m_LocalRotation: {x: 0.0011333963, y: 0.83462346, z: -0.55081713, w: 0.0017173744}
   m_LocalPosition: {x: -0.044999916, y: 9.143, z: 4.1310005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

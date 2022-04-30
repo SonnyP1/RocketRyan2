@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] float Speed = 5f;
     [SerializeField] AudioSource BlowUpSound;
+    [SerializeField] AudioSource EnemyBlowUpSound;
     [SerializeField] GameObject ProjectileEffect;
     void Start()
     {
@@ -27,10 +28,18 @@ public class Projectile : MonoBehaviour
             other.GetComponent<Enemy>().BlowUp();
         }
 
-        if(BlowUpSound != null)
+        if(BlowUpSound != null && EnemyBlowUpSound != null)
         {
-            BlowUpSound.Play();
-            BlowUpSound.transform.parent = null;
+            if(other.gameObject.layer == LayerMask.NameToLayer("Enemy") && EnemyBlowUpSound.isActiveAndEnabled)
+            {
+                EnemyBlowUpSound.Play();
+                EnemyBlowUpSound.transform.parent = null;
+            }
+            else if(BlowUpSound.isActiveAndEnabled)
+            {
+                BlowUpSound.Play();
+                BlowUpSound.transform.parent = null;
+            }
         }
         GameObject newEffect = Instantiate(ProjectileEffect, transform);
         newEffect.transform.parent = null;
