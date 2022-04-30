@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 20
-  BlowUpSound: {fileID: 2771977105243405383}
-  EnemyBlowUpSound: {fileID: 1112060190229562085}
+  BlowUpSound: {fileID: 1112060190229562085}
+  EnemyBlowUpSound: {fileID: 2771977105243405383}
   ProjectileEffect: {fileID: 4079042636652509103, guid: b86699575cd1f464aae73eccc56817c1, type: 3}
 --- !u!135 &5443219286352503853
 SphereCollider:
