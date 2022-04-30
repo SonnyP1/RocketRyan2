@@ -7,6 +7,8 @@ public class PlayerAnimatorHandler : MonoBehaviour
 {
     [SerializeField] SpriteRenderer InGameSprite;
     [SerializeField] SpriteRenderer VictorySprite;
+    [SerializeField] AudioSource VictorySound;
+    [SerializeField] AudioSource Music;
     private void Start()
     {
         InGameSprite.color = new Color(255, 255, 255, 1);
@@ -14,6 +16,8 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
     internal void PlayVictoryAnimation()
     {
+        Music.Stop();
+        VictorySound.Play();
         InGameSprite.color = new Color(255, 255, 255,0);
         VictorySprite.color = new Color(255, 255, 255,1);
     }
