@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4404175832070378003}
   - component: {fileID: 2557333785307196867}
-  - component: {fileID: 7747590589058100434}
   - component: {fileID: 794420694523829542}
   m_Layer: 3
   m_Name: Trap_Enemy
@@ -91,28 +90,6 @@ MonoBehaviour:
   - {fileID: 5682600714336736597}
   - {fileID: 7705042467986623469}
   - {fileID: 8460209999562243309}
---- !u!195 &7747590589058100434
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2168716234552263944}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!65 &794420694523829542
 BoxCollider:
   m_ObjectHideFlags: 0
