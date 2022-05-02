@@ -29,7 +29,7 @@ public class PlayerGunComponent : MonoBehaviour
     }
     internal void Fire()
     {
-        GameObject newObject = Instantiate(ProjectileToSpawn, ProjectileSpawnPoint);
+        GameObject newObject = Instantiate(ProjectileToSpawn,ProjectileSpawnPoint);
         newObject.transform.parent = null;
         if(ShootingSound.isPlaying)
         {

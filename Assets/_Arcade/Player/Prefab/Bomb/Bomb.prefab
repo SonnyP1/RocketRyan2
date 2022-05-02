@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e395f9288508044b9f4f47a7d56b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionRadius: 10
+  ExplosionRadius: 7
   BombEffect: {fileID: 4079042636652509103, guid: addcca717b097a84db78468846b3cb46, type: 3}
   MaterialToEdit: {fileID: 2100000, guid: 4f4755e5032749649accc1145d607fdf, type: 2}
   BombObject: {fileID: 7722594394598498284}
