@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a9e81ba1d8b4847a23f9d4b5d75990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestoryTime: 2
 --- !u!1001 &3503532581120820780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,6 +115,14 @@ PrefabInstance:
     - target: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198194127032045410, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 8097837862119539144, guid: c8a9c9fd1944d2946a6d52710326e533, type: 3}
+    - target: {fileID: 198194127032045410, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199199701051105568, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
       propertyPath: m_Materials.Array.size
