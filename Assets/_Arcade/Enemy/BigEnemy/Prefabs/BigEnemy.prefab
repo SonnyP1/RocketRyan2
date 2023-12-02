@@ -418,6 +418,7 @@ MonoBehaviour:
   ScoreToAdd: 100
   SpawnTime: 2
   EnemyToSpawn:
+  - {fileID: 2168716234552263944, guid: 230c00b736363d74e8555df6cf86a402, type: 3}
   - {fileID: 2168716234552263944, guid: e66534275695ff946b6849202fb2ad9c, type: 3}
   - {fileID: 2168716234552263944, guid: 099348d280f25134bb14dd7b80914e51, type: 3}
   - {fileID: 2168716234552263944, guid: ff746048bc4da0e4a83ce57f7764fdf8, type: 3}
