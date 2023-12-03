@@ -53,8 +53,8 @@ MonoBehaviour:
   ScoreToAdd: 10
   m_projectile: {fileID: 2917473021681840740, guid: aa7f5d4f550b7f04688820f5637289d1, type: 3}
   m_spawn: {fileID: 1435845245282177674}
-  m_range: 5
-  m_firerate: 0.1
+  m_firerate: 5
+  m_projectileSpeed: 10
 --- !u!195 &7747590589058100434
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2168716234552263944}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

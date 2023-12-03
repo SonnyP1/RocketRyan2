@@ -9,8 +9,8 @@ public class TurretEnemyScript : Enemy
     [SerializeField] Transform m_spawn;
 
     [Header("Stats")]
-    [Range(0.1f,20f)] [SerializeField] float m_firerate;
-    [Range(0.1f, 50f)][SerializeField] float m_projectileSpeed;
+    [Range(0.01f,20f)] [SerializeField] float m_firerate;
+    [Range(0.01f, 50f)][SerializeField] float m_projectileSpeed;
 
     public override void Start()
     {
