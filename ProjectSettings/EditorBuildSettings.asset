@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/_Arcade/Scenes/Levels/LevelOne_Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/_Arcade/Scenes/TestScene.unity
-    guid: 2335e32a9cac8624fa62a8984277bce2
+    path: Assets/_Arcade/Scenes/Levels/LevelTwo_Scene 1.unity
+    guid: 6bc57c418a84d794a9c3f673ce9063d2
   - enabled: 1
     path: Assets/_Arcade/Scenes/Levels/LevelThree_Scene.unity
     guid: 1ba876a6787e6cc47bb0c66661cdbd39
