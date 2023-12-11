@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GeoGem_Mat
-  m_Shader: {fileID: -6465566751694194690, guid: 3a4575c7b65f16e408e12c6817c5e2d8, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 198e07e2ad44ff04b84c427ed0830cb5, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
