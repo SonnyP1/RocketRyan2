@@ -82,6 +82,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7533418905172205783, guid: 0a3e5407c12177a4aaf40a1364024f6b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -5714587031623001721, guid: 0a3e5407c12177a4aaf40a1364024f6b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -93,6 +97,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0a3e5407c12177a4aaf40a1364024f6b, type: 3}
       propertyPath: m_Name
       value: WallBarrier_LP
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0a3e5407c12177a4aaf40a1364024f6b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048337289162223860, guid: 0a3e5407c12177a4aaf40a1364024f6b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a3e5407c12177a4aaf40a1364024f6b, type: 3}
