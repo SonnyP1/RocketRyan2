@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionRadius: 7
-  BombEffect: {fileID: 4079042636652509103, guid: addcca717b097a84db78468846b3cb46, type: 3}
+  BombEffect: {fileID: 8243138180131889124, guid: 8b32132e25d3783478c58dd52cd96552, type: 3}
   MaterialToEdit: {fileID: 2100000, guid: 4f4755e5032749649accc1145d607fdf, type: 2}
   BombObject: {fileID: 7722594394598498284}
   TickSound: {fileID: 3378568735171546760}

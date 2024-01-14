@@ -6,6 +6,7 @@ public class BoostOver : MonoBehaviour
 {
     [SerializeField] Transform pointToMoveTarget;
     [SerializeField] float HeightOfArcLaunch;
+    [SerializeField] AudioSource BoostNoise;
 
 
     private void OnTriggerEnter(Collider other)
@@ -13,6 +14,7 @@ public class BoostOver : MonoBehaviour
         if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Debug.Log("BoostOver Start");
+            BoostNoise.Play();
             if(other.GetComponent<HealthComponent>())
             {
                 return;

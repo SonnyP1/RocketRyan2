@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sunflower)mat
-  m_Shader: {fileID: -6465566751694194690, guid: 3f8a20171c6dedd4fbf3531b797a7d7c, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 368d6f29af8813c4899fefec55efed1c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -76,6 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_ca48f175f9e04e26895a227cf5172fc4: 16
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1

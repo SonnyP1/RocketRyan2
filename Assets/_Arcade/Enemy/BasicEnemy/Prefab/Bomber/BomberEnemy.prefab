@@ -90,7 +90,7 @@ MonoBehaviour:
   ScoreToAdd: 5
   ExplosionRadius: 4
   spriteOne: {fileID: 5796921115094501889}
-  BomberEffect: {fileID: 4079042636652509103, guid: df37e6a4a2d33914f9bf695d821b294d, type: 3}
+  BomberEffect: {fileID: 8243138180131889124, guid: 8b32132e25d3783478c58dd52cd96552, type: 3}
   BomberBlowUpSound: {fileID: 4573447862777042194}
   TickSound: {fileID: 5667488529977324029}
   BombObject: {fileID: 1460125725082823675}

@@ -2533,7 +2533,7 @@ GameObject:
   - component: {fileID: 8566608992853764396}
   - component: {fileID: 2306574911265239894}
   m_Layer: 0
-  m_Name: TechnoWizard_Rigged
+  m_Name: SpaceWizard_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

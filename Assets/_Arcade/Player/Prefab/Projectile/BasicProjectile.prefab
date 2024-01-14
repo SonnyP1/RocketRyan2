@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4352534422957227405}
-  - component: {fileID: 2345875924260068437}
+  - component: {fileID: 282201373693323991}
   - component: {fileID: 5443219286352503853}
   - component: {fileID: 683672199717967575}
   m_Layer: 6
@@ -164,7 +164,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2345875924260068437
+--- !u!114 &282201373693323991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,7 +179,8 @@ MonoBehaviour:
   Speed: 20
   BlowUpSound: {fileID: 1112060190229562085}
   EnemyBlowUpSound: {fileID: 2771977105243405383}
-  ProjectileEffect: {fileID: 4079042636652509103, guid: b86699575cd1f464aae73eccc56817c1, type: 3}
+  ProjectileEffect: {fileID: 8243138180131889124, guid: d1172c1ebb79c7148ac19a7e5dcd772b, type: 3}
+  ProjectileKillEffect: {fileID: 8243138180131889124, guid: e3424028803974c40b7587e3806ec80e, type: 3}
 --- !u!135 &5443219286352503853
 SphereCollider:
   m_ObjectHideFlags: 0

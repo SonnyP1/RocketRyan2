@@ -415,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2978028106710242200}
   m_Layer: 0
-  m_Name: GammaRayGaile_LP
+  m_Name: GammaRayGaile_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

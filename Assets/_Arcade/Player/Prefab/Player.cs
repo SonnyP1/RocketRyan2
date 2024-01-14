@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     Vector2 _moveInput;
     PlayerMovementComponent _playerMovementComp;
     PlayerGunComponent _playerGunComponent;
+    [SerializeField] AudioSource HealthSound;
+    [SerializeField] AudioSource BoostUpSound;
+    [SerializeField] AudioSource BombPickUpSound;
 
     private void OnEnable()
     {
@@ -79,5 +82,20 @@ public class Player : MonoBehaviour
     public void DisablePlayerControls()
     {
         _playerInput.Gameplay.Disable();
+    }
+
+    // item sounds
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Health"))
+        HealthSound.Play();
+
+        else if (other.CompareTag("BoostUp"))
+            BoostUpSound.Play();
+
+        else if (other.CompareTag("Bomb"))
+            BombPickUpSound.Play();
+        
     }
 }

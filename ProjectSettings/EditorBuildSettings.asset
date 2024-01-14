@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/_Arcade/Scenes/Levels/LevelOne_Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/_Arcade/Scenes/Levels/LevelTwo_Scene 1.unity
+    path: Assets/_Arcade/Scenes/Levels/LevelTwo_Scene.unity
     guid: 6bc57c418a84d794a9c3f673ce9063d2
   - enabled: 1
     path: Assets/_Arcade/Scenes/Levels/LevelThree_Scene.unity
@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/_Arcade/Scenes/Levels/LevelFive_Scene.unity
     guid: dd7f4137ea8571a44967284ffa2e0546
   - enabled: 1
+    path: Assets/_Arcade/Scenes/Levels/Boss1_Scene.unity
+    guid: 09595d4371cbed1409538dd2e2d56772
+  - enabled: 1
     path: Assets/_Arcade/Scenes/Levels/LevelSix_Scene.unity
-    guid: dfd326c7137c03e4abe683dbe2686922
+    guid: a0e57455a3ced4247a59e2eef1e6c3ed
+  - enabled: 1
+    path: Assets/_Arcade/Scenes/Levels/Boss2_Scene.unity
+    guid: f4b8d0e1c47512648a7a86af7815eaa0
   m_configObjects: {}

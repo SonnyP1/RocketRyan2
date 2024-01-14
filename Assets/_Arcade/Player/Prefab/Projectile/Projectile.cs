@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] AudioSource BlowUpSound;
     [SerializeField] AudioSource EnemyBlowUpSound;
     [SerializeField] GameObject ProjectileEffect;
+    public GameObject ProjectileKillEffect;
     void Start()
     {
     }
@@ -34,6 +35,9 @@ public class Projectile : MonoBehaviour
             {
                 EnemyBlowUpSound.Play();
                 EnemyBlowUpSound.transform.parent = null;
+                GameObject AnotherEffect = Instantiate(ProjectileKillEffect, transform);
+                AnotherEffect.transform.parent = null;
+                Destroy(gameObject);
             }
             else if(BlowUpSound.isActiveAndEnabled)
             {
