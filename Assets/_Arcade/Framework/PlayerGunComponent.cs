@@ -14,17 +14,9 @@ public class PlayerGunComponent : MonoBehaviour
     [SerializeField] GameObject BombToSpawn;
     [SerializeField] Transform BombSpawnPoint;
 
-    ScoreKeeper _scoreKeeper;
-    GameplayUIManager _gameplayUIManager;
-
     private void Start()
     {
-        _scoreKeeper = FindObjectOfType<ScoreKeeper>();
-        _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
-        if (_scoreKeeper != null)
-        {
-            BomberAmmo = _scoreKeeper.GetCurrentBombAmmo();
-        }
+        BomberAmmo = ScoreKeeper.m_scoreKeeper.GetCurrentBombAmmo();
         UpdateBombUI();
     }
     internal void Fire()
@@ -58,8 +50,7 @@ public class PlayerGunComponent : MonoBehaviour
 
     private void UpdateBombUI()
     {
-        _scoreKeeper.UpdateBombAmmo(BomberAmmo);
-        //Debug.Log("Current bomb ammo: " + BomberAmmo);
-        _gameplayUIManager.UpdateBombUI(BomberAmmo);
+        ScoreKeeper.m_scoreKeeper.UpdateBombAmmo(BomberAmmo);
+        ScoreKeeper.m_scoreKeeper.GetGameplayUIManager().UpdateBombUI(BomberAmmo);
     }
 }

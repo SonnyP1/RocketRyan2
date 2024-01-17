@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     [SerializeField] AudioSource HealthSound;
     [SerializeField] AudioSource BoostUpSound;
     [SerializeField] AudioSource BombPickUpSound;
-
     private void OnEnable()
     {
         _playerInput.Enable();
@@ -26,6 +25,10 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _playerInput = new PlayerInputs();
+        GameObject scoreKeeper = new GameObject();
+        scoreKeeper.name = "ScoreKeeper";
+        scoreKeeper.transform.parent = null;
+        scoreKeeper.AddComponent<ScoreKeeper>();
     }
     private void Start()
     {

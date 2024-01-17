@@ -32,12 +32,12 @@ public class BigEnemyAI : Enemy
     public override void InitEnemy()
     {
         base.InitEnemy();
-        if(GetScoreKeeper().GetDifficultyIndex() >= 5)
+        if(ScoreKeeper.m_scoreKeeper.GetDifficultyIndex() >= 5)
         {
             Debug.Log("SPAWING RATE CUT IN HALF");
             SpawnTime = SpawnTime / 2;
         }
-        if(GetScoreKeeper().GetDifficultyIndex() >= 10)
+        if(ScoreKeeper.m_scoreKeeper.GetDifficultyIndex() >= 10)
         {
             Debug.Log("SPAWING RATE CUT IN FOUR");
             SpawnTime = SpawnTime / 4;

@@ -6,6 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class ScoreKeeper : MonoBehaviour
 {
+    public static ScoreKeeper m_scoreKeeper { get; private set; }
+    private void Awake()
+    {
+        if (m_scoreKeeper != null && m_scoreKeeper != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            m_scoreKeeper = this;
+        }
+    }
+
+
     List<GameObject> AllEnemies = new List<GameObject>();
     GameplayUIManager _gameplayUIManager;
     int levelIndex = 2;
@@ -16,6 +30,11 @@ public class ScoreKeeper : MonoBehaviour
     float currentBoost = 0;
     int currentBombAmmo = 0;
     string _displayName;
+
+    public GameplayUIManager GetGameplayUIManager()
+    {
+        return _gameplayUIManager;
+    }
     public void SetDisplayName(string newDisplayName)
     {
         _displayName = newDisplayName;
@@ -36,7 +55,6 @@ public class ScoreKeeper : MonoBehaviour
             return;
         }
         _gameplayUIManager.UpdateScoreCountTxt(score);
-
     }
 
     internal float GetCurrentHealthGlobal()
@@ -78,22 +96,25 @@ public class ScoreKeeper : MonoBehaviour
         _gameplayUIManager.UpdateScoreCountTxt(score);
     }
 
-
-    private void Update()
+    IEnumerator CheckForVictory()
     {
-        if(!isPlayerVictoryScreen && AllEnemies.Count == 0 && SceneManager.GetActiveScene().buildIndex != SceneManager.GetSceneByName("MainMenu_Scene").buildIndex)
+        yield return new WaitForSeconds(0.5f);
+        while(true)
         {
-            levelIndex++;
-            levelIndex = (levelIndex >= SceneManager.sceneCountInBuildSettings) ? 2 : levelIndex;
-            difficultyIndex++;
+            if (!isPlayerVictoryScreen && AllEnemies.Count == 0 && SceneManager.GetActiveScene().buildIndex != SceneManager.GetSceneByName("MainMenu_Scene").buildIndex)
+            {
+                levelIndex++;
+                levelIndex = (levelIndex >= SceneManager.sceneCountInBuildSettings) ? 2 : levelIndex;
+                difficultyIndex++;
 
-            StartCoroutine(PlayerVictoryScream());
+                StartCoroutine(PlayerVictoryScream());
+            }
+            yield return new WaitForEndOfFrame();
         }
     }
-
     private void OnNewLevelLoad(Scene arg0, LoadSceneMode arg1)
     {
-
+        StartCoroutine(CheckForVictory());
         if (arg0.buildIndex == 1)
         {
             FindObjectOfType<PlayfabManager>().Login(score,_displayName);

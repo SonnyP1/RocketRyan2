@@ -8,7 +8,6 @@ using TMPro;
 
 public class MainMenu_ButtonManager : MonoBehaviour
 {
-    [SerializeField] ScoreKeeper ScoreKeeper;
     [SerializeField] Button StartBtn;
     [SerializeField] Button LeaderBoardBtn;
     [SerializeField] Button ExitBtn;
@@ -19,12 +18,12 @@ public class MainMenu_ButtonManager : MonoBehaviour
         LeaderBoardBtn.onClick.AddListener(LeaderBoardBtnClicked);
         ExitBtn.onClick.AddListener(ExitBtnClicked);
         TextInputField.onValueChanged.AddListener(TextChange);
-        ScoreKeeper.SetDisplayName(TextInputField.text);
+        ScoreKeeper.m_scoreKeeper.SetDisplayName(TextInputField.text);
     }
 
     private void TextChange(string stringChange)
     {
-        ScoreKeeper.SetDisplayName(stringChange);
+        ScoreKeeper.m_scoreKeeper.SetDisplayName(stringChange);
     }
 
     private void StartBtnClicked()
