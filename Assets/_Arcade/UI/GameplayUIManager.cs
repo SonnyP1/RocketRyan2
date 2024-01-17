@@ -10,6 +10,7 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] Image hurtImage;
     [SerializeField] Slider BoostSlider;
     [SerializeField] Slider HealthSlider;
+    [SerializeField] Slider BossSlider;
     [SerializeField] TextMeshProUGUI EnemyCountTxt;
     [SerializeField] TextMeshProUGUI ScoreCountTxt;
     [SerializeField] Image[] BombImages;
@@ -19,6 +20,8 @@ public class GameplayUIManager : MonoBehaviour
     private void Start()
     {
         alpha.a = 50f/255f;
+
+        UpdateBossUI(false,0,0);
     }
 
     public void UpdateBoostSlider(float newPercent)
@@ -68,5 +71,11 @@ public class GameplayUIManager : MonoBehaviour
         {
             BombImages[i].enabled = true;
         }
+    }
+
+    internal void UpdateBossUI(bool show, int hp,int maxHP)
+    {
+        BossSlider.transform.gameObject.SetActive(show);
+        BossSlider.value = (float)hp / (float)maxHP;
     }
 }

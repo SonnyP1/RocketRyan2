@@ -47,6 +47,12 @@ public class ScoreKeeper : MonoBehaviour
 
     private void Start()
     {
+        if(SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            levelIndex = SceneManager.GetActiveScene().buildIndex;
+        }
+
+        StartCoroutine(CheckForVictory());
         SceneManager.sceneLoaded += OnNewLevelLoad;
         DontDestroyOnLoad(gameObject);
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
