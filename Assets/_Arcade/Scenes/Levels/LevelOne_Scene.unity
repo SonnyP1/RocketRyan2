@@ -9035,6 +9035,10 @@ PrefabInstance:
       value: 9.143
       objectReference: {fileID: 0}
     - target: {fileID: 4265677689784617825, guid: 2e354322aca6c674990b8e952852ba3b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.1310005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265677689784617825, guid: 2e354322aca6c674990b8e952852ba3b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.0017173557
       objectReference: {fileID: 0}
@@ -9073,6 +9077,18 @@ PrefabInstance:
     - target: {fileID: 4903481829152275387, guid: 2e354322aca6c674990b8e952852ba3b, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.5508172
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019360606439933957, guid: 2e354322aca6c674990b8e952852ba3b, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019360606439933957, guid: 2e354322aca6c674990b8e952852ba3b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 588172408ffd75f47964020914cc6a75, type: 3}
+    - target: {fileID: 6019360606439933957, guid: 2e354322aca6c674990b8e952852ba3b, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6162449906062216071, guid: 2e354322aca6c674990b8e952852ba3b, type: 3}
       propertyPath: m_RenderPostProcessing
@@ -17063,6 +17079,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 524058274577420477, guid: 490c6553984357f498adcd9cc66b0f39, type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900559917086619495, guid: 490c6553984357f498adcd9cc66b0f39, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900559917086619495, guid: 490c6553984357f498adcd9cc66b0f39, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3637713116657546245, guid: 490c6553984357f498adcd9cc66b0f39, type: 3}

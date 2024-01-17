@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BoostColliderScript : MonoBehaviour
 {
+
+    [SerializeField] AudioSource RamSound;
+    public GameObject CollideEffect;
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -14,7 +18,12 @@ public class BoostColliderScript : MonoBehaviour
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
+            RamSound.Play();
+            GameObject newEffect = Instantiate(CollideEffect, transform);
+            newEffect.transform.parent = null;
             other.GetComponent<Enemy>().BlowUp();
+
+            //Destroy(gameObject);
         }
 
     }

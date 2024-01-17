@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -97603732561360024}
   - component: {fileID: -2558805638513000969}
   m_Layer: 3
-  m_Name: Trap
+  m_Name: SunflowerBullet_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +91,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 716ad8d159243b64894883ef913f9a22, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.15
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -234,7 +234,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 603a3934fd5d1564b9350e3ddf161564, type: 2}
+  - {fileID: 2100000, guid: 3007826654385514abba1494361d160b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

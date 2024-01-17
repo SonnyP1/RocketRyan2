@@ -13,7 +13,9 @@ public class SunflowerTank : Enemy
     public float m_firerate;
 
     public GameObject m_projectile;
+    public GameObject m_itemHelp;
     public Transform[] m_spawnPoints;
+    public Transform[] m_itemSpawnPoints;
     public float m_projectileSpeed;
 
     private float _maxStepDistance = 200f;
@@ -94,6 +96,12 @@ public class SunflowerTank : Enemy
             GameObject projectile = Instantiate(m_projectile, m_spawn, false);
             projectile.transform.parent = null;
             projectile.GetComponent<Trap>().SetSpeed(m_projectileSpeed);
+        }
+
+        foreach(Transform m_spawn in m_itemSpawnPoints)
+        {
+            GameObject itemHelp = Instantiate(m_itemHelp, m_spawn, false);
+            itemHelp.transform.parent = null;
         }
     }
 
