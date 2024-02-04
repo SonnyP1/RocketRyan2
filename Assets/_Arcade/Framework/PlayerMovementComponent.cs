@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerMovementComponent : MonoBehaviour
 {
-    [SerializeField] float MoveSpeed = 5f;
-    [SerializeField] float RotationSpeed = 5f;
+    private float _speed = 5f;
+    private float _rotspeed = 5f;
     [SerializeField] Transform BoostTransform;
     [SerializeField] GameObject BoostEffect;
     [SerializeField] BoxCollider BoostCollider;
@@ -18,6 +18,20 @@ public class PlayerMovementComponent : MonoBehaviour
     float boostMax = 100f;
     Vector2 _moveInput;
     bool _isBoostActive = false;
+
+    //Getters & Setters
+    public float Speed
+    {
+        set { _speed = value; }
+        get { return _speed;}
+    }
+
+    public float RotSpeed
+    {
+        set { _rotspeed = value; }
+        get { return _rotspeed; }
+    }
+
 
     internal float GetCurrentBoost()
     {
@@ -52,7 +66,7 @@ public class PlayerMovementComponent : MonoBehaviour
         if(_isBoostActive == true && _boostCurrent >= 0)
         {
             _boostCurrent -= 0.1f;
-            _characterController.Move(-transform.right * (MoveSpeed*2) * Time.deltaTime);
+            _characterController.Move(-transform.right * (_speed*2) * Time.deltaTime);
             if(!BoostSoundEffect.isPlaying)
             {
                 BoostSoundEffect.Play();
@@ -68,7 +82,7 @@ public class PlayerMovementComponent : MonoBehaviour
         BoostSoundEffect.loop = false;
         BoostFrontEffect.SetActive(false);
         BoostCollider.enabled = false;
-        _characterController.Move(-transform.right * MoveSpeed * Time.deltaTime);
+        _characterController.Move(-transform.right * _speed * Time.deltaTime);
     }
 
     public void ActivateBoostFrontEffect()
@@ -97,7 +111,7 @@ public class PlayerMovementComponent : MonoBehaviour
         }
 
         Quaternion DesiredRotation = Quaternion.LookRotation(PlayerDesiredDir, Vector3.up);
-        transform.rotation = Quaternion.Lerp(transform.rotation, DesiredRotation, Time.deltaTime * RotationSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, DesiredRotation, Time.deltaTime * _rotspeed);
     }
 
     internal void BoostDeactive()
@@ -124,7 +138,7 @@ public class PlayerMovementComponent : MonoBehaviour
 
     internal void StopMovement()
     {
-        MoveSpeed = 0;
+        _speed = 0;
     }
 
 }

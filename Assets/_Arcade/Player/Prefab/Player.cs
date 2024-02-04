@@ -6,13 +6,24 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    //Player Inputs
     PlayerInputs _playerInput;
     Vector2 _moveInput;
+
+    //Player Cart
+    [SerializeField] Cart _cart;
+    [SerializeField] Transform _cartSpawnPoint;
+
+    //Player Components
     PlayerMovementComponent _playerMovementComp;
     PlayerGunComponent _playerGunComponent;
+
+    //Player Audio
     [SerializeField] AudioSource HealthSound;
     [SerializeField] AudioSource BoostUpSound;
     [SerializeField] AudioSource BombPickUpSound;
+
+
     private void OnEnable()
     {
         _playerInput.Enable();
@@ -32,9 +43,22 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
-        _playerMovementComp = GetComponent<PlayerMovementComponent>();
-        _playerGunComponent = GetComponent<PlayerGunComponent>();;
+        InitComponents();
         SetUpPlayerInput();
+    }
+
+    void InitComponents()
+    {
+        _playerMovementComp = GetComponent<PlayerMovementComponent>();
+        _playerMovementComp.Speed = _cart.m_moveSpeed;
+        _playerMovementComp.RotSpeed = _cart.m_turnSpeed;
+
+        _playerGunComponent = GetComponent<PlayerGunComponent>();;
+        _playerGunComponent.ProjectilePrefab = _cart.m_projectileType;
+        _playerGunComponent.BombPrefab = _cart.m_bombType;
+        _playerGunComponent.BombMaxAmmo = _cart.m_maxBombs;
+
+        Instantiate(_cart.m_cartModel, _cartSpawnPoint);
     }
 
     private void SetUpPlayerInput()
