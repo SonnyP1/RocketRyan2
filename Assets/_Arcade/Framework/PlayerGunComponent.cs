@@ -3,10 +3,10 @@ using UnityEngine;
 public class PlayerGunComponent : MonoBehaviour
 {
     
-    [SerializeField] Transform ProjectileSpawnPoint;
     [SerializeField] Transform BombSpawnPoint;
     [SerializeField] AudioSource ShootingSound;
 
+    private Transform _projectileSpawnPoint;
 
     private GameObject _projectile;
     private GameObject _bomb;
@@ -33,7 +33,11 @@ public class PlayerGunComponent : MonoBehaviour
         get { return _bomberMaxAmmo; }
     }
 
-
+    public Transform ProjectileSpawnPoint
+    {
+        set { _projectileSpawnPoint = value; }
+        get { return _projectileSpawnPoint; }
+    }
 
     private void Start()
     {

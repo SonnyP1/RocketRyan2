@@ -5,19 +5,23 @@ using UnityEngine;
 
 public class PlayerMovementComponent : MonoBehaviour
 {
-    private float _speed = 5f;
-    private float _rotspeed = 5f;
-    [SerializeField] Transform BoostTransform;
     [SerializeField] GameObject BoostEffect;
     [SerializeField] BoxCollider BoostCollider;
     [SerializeField] GameObject BoostFrontEffect;
     [SerializeField] AudioSource BoostSoundEffect;
-    CharacterController _characterController;
-    GameplayUIManager _gameplayUIManager;
-    float _boostCurrent = 0f;
-    float boostMax = 100f;
-    Vector2 _moveInput;
-    bool _isBoostActive = false;
+
+
+    private float _speed = 5f;
+    private float _rotspeed = 5f;
+    private float _boostCurrent = 0f;
+    private float boostMax = 100f;
+    private Transform _boostTransform;
+
+    private CharacterController _characterController;
+    private GameplayUIManager _gameplayUIManager;
+
+    private Vector2 _moveInput;
+    private bool _isBoostActive = false;
 
     //Getters & Setters
     public float Speed
@@ -31,12 +35,17 @@ public class PlayerMovementComponent : MonoBehaviour
         set { _rotspeed = value; }
         get { return _rotspeed; }
     }
-
-
     internal float GetCurrentBoost()
     {
         return _boostCurrent;
     }
+
+    public Transform BoostTransform
+    {
+        set { _boostTransform = value; }
+        get { return _boostTransform; }
+    }
+
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
@@ -72,7 +81,7 @@ public class PlayerMovementComponent : MonoBehaviour
                 BoostSoundEffect.Play();
                 BoostSoundEffect.loop = true;
             }
-            GameObject newBoostEffect = Instantiate(BoostEffect,BoostTransform);
+            GameObject newBoostEffect = Instantiate(BoostEffect,_boostTransform);
             newBoostEffect.transform.parent = null;
             UpdateBoostUI();
             BoostCollider.enabled = true;

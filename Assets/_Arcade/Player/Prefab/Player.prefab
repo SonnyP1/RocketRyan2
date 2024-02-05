@@ -818,7 +818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f2f3851bfef0e498c1a8ee211a1ba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoostTransform: {fileID: 3805941407480859697}
   BoostEffect: {fileID: 8243138180131889124, guid: d2aede6dd52017f4984556ca6df55d50, type: 3}
   BoostCollider: {fileID: 3081229863355457293}
   BoostFrontEffect: {fileID: 3829932137236167064}
@@ -835,7 +834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0fd44ffbc6d3a44a727b6e080e13c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileSpawnPoint: {fileID: 3805941407480859697}
   BombSpawnPoint: {fileID: 3805941407480859697}
   ShootingSound: {fileID: 1276679213550894509}
 --- !u!114 &6474014870992790781
@@ -1660,7 +1658,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5608868932148723822}
-  m_LocalRotation: {x: 0.0011333653, y: 0.8346234, z: -0.5508172, w: 0.001717327}
+  m_LocalRotation: {x: 0.0011333509, y: 0.8346234, z: -0.5508172, w: 0.0017173052}
   m_LocalPosition: {x: -0.016999915, y: 9.201, z: 4.1310005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2067,8 +2065,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8394054597210508600}
-  m_LocalRotation: {x: 0.0011333597, y: 0.83462334, z: -0.55081713, w: 0.0017173187}
-  m_LocalPosition: {x: 16.949677, y: 9.701, z: -15.174183}
+  m_LocalRotation: {x: 0.0011333509, y: 0.8346234, z: -0.5508172, w: 0.0017173052}
+  m_LocalPosition: {x: -0.016999915, y: 9.201, z: 4.1310005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

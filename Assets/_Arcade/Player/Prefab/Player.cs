@@ -52,13 +52,29 @@ public class Player : MonoBehaviour
         _playerMovementComp = GetComponent<PlayerMovementComponent>();
         _playerMovementComp.Speed = _cart.m_moveSpeed;
         _playerMovementComp.RotSpeed = _cart.m_turnSpeed;
+        _playerMovementComp.BoostTransform = SpawnTransform().transform;
+        _playerMovementComp.BoostTransform.localPosition = _cart.m_boostOffset;
+        _playerMovementComp.BoostTransform.name = "Boost Spawn Point";
 
-        _playerGunComponent = GetComponent<PlayerGunComponent>();;
+        _playerGunComponent = GetComponent<PlayerGunComponent>(); ;
         _playerGunComponent.ProjectilePrefab = _cart.m_projectileType;
         _playerGunComponent.BombPrefab = _cart.m_bombType;
         _playerGunComponent.BombMaxAmmo = _cart.m_maxBombs;
+        _playerGunComponent.ProjectileSpawnPoint = SpawnTransform().transform;
+        _playerGunComponent.ProjectileSpawnPoint.localPosition = _cart.m_projectileOffset;
+        _playerGunComponent.ProjectileSpawnPoint.name = "Projectile Spawn Point";
 
         Instantiate(_cart.m_cartModel, _cartSpawnPoint);
+
+    }
+
+    private GameObject SpawnTransform()
+    {
+        GameObject obj = new GameObject();
+        obj.transform.parent = _cartSpawnPoint;
+        obj.transform.localPosition = Vector3.zero;
+        obj.transform.localEulerAngles = Vector3.zero;
+        return obj;
     }
 
     private void SetUpPlayerInput()

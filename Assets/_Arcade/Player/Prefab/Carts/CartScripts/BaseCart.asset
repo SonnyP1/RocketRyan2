@@ -18,3 +18,5 @@ MonoBehaviour:
   m_bombType: {fileID: 8167434674628163747, guid: f4b6a7d8b8f22144898a39d3498c98ba, type: 3}
   m_maxBombs: 3
   m_cartModel: {fileID: 919132149155446097, guid: 0afd9ae3c04248d44a3273ecb48e6490, type: 3}
+  m_projectileOffset: {x: 0, y: 0, z: 1}
+  m_boostOffset: {x: 0, y: 0, z: -1}

@@ -17,4 +17,6 @@ public class Cart : ScriptableObject
 
     [Header("Looks")]
     public GameObject m_cartModel;
+    public Vector3 m_projectileOffset;
+    public Vector3 m_boostOffset;
 }
