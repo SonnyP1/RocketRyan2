@@ -1,9 +1,109 @@
 fileFormatVersion: 2
 guid: 0afd9ae3c04248d44a3273ecb48e6490
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FrontAxel_car_grpMat
+    second: {fileID: 2100000, guid: d56861e6207e02f44901191ad8d1959f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_BackGrillMat
+    second: {fileID: 2100000, guid: d56861e6207e02f44901191ad8d1959f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_CartBodyMat
+    second: {fileID: 2100000, guid: 37d5af3c2de40ce498a990c576a4fe26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_ExhaustMat
+    second: {fileID: 2100000, guid: d56861e6207e02f44901191ad8d1959f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_FrontSkirtMat
+    second: {fileID: 2100000, guid: 1ef54a8c978a16449a81f737955d44aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_GrillMat
+    second: {fileID: 2100000, guid: d56861e6207e02f44901191ad8d1959f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_HandlesMat
+    second: {fileID: 2100000, guid: d56861e6207e02f44901191ad8d1959f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_HeadlightsMat
+    second: {fileID: 2100000, guid: 30c9eaa4bfb3a424d941843eda285f26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_RearAxelMat
+    second: {fileID: 2100000, guid: d56861e6207e02f44901191ad8d1959f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_RearTrimMat
+    second: {fileID: 2100000, guid: 022bef0c8f5030e44a1884969b407a5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_SeatPadMat
+    second: {fileID: 2100000, guid: 1ef54a8c978a16449a81f737955d44aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_SideSkirtMat
+    second: {fileID: 2100000, guid: 1ef54a8c978a16449a81f737955d44aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_Tire_BLMat
+    second: {fileID: 2100000, guid: 1ef54a8c978a16449a81f737955d44aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_Tire_BRMat
+    second: {fileID: 2100000, guid: 1ef54a8c978a16449a81f737955d44aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_Tire_FLMat
+    second: {fileID: 2100000, guid: 1ef54a8c978a16449a81f737955d44aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_Tire_FRMat
+    second: {fileID: 2100000, guid: 1ef54a8c978a16449a81f737955d44aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_TrimsMat
+    second: {fileID: 2100000, guid: 022bef0c8f5030e44a1884969b407a5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_neonEngine1Mat
+    second: {fileID: 2100000, guid: 30c9eaa4bfb3a424d941843eda285f26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_neonEngine2Mat
+    second: {fileID: 2100000, guid: 30c9eaa4bfb3a424d941843eda285f26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_grp_neonEngine3Mat
+    second: {fileID: 2100000, guid: 30c9eaa4bfb3a424d941843eda285f26, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -14,6 +114,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -43,6 +144,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -54,6 +156,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -96,6 +199,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

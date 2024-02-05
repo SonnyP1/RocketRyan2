@@ -1,27 +1,48 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerGunComponent : MonoBehaviour
 {
-    [SerializeField] GameObject ProjectileToSpawn;
+    
     [SerializeField] Transform ProjectileSpawnPoint;
+    [SerializeField] Transform BombSpawnPoint;
     [SerializeField] AudioSource ShootingSound;
 
-    [SerializeField] int BomberAmmo = 3;
-    [SerializeField] int BomberMaxAmmo = 3;
-    [SerializeField] GameObject BombToSpawn;
-    [SerializeField] Transform BombSpawnPoint;
+
+    private GameObject _projectile;
+    private GameObject _bomb;
+
+    private int _bomberAmmo = 3;
+    private int _bomberMaxAmmo = 3;
+
+    //Getters & Setters
+    public GameObject ProjectilePrefab
+    {
+        set { _projectile = value; }
+        get { return _projectile; }
+    }
+
+    public GameObject BombPrefab
+    {
+        set { _bomb = value; }
+        get { return _bomb; }
+    }
+
+    public int BombMaxAmmo
+    {
+        set { _bomberMaxAmmo = value; }
+        get { return _bomberMaxAmmo; }
+    }
+
+
 
     private void Start()
     {
-        BomberAmmo = ScoreKeeper.m_scoreKeeper.GetCurrentBombAmmo();
+        _bomberAmmo = ScoreKeeper.m_scoreKeeper.GetCurrentBombAmmo();
         UpdateBombUI();
     }
     internal void Fire()
     {
-        GameObject newObject = Instantiate(ProjectileToSpawn,ProjectileSpawnPoint);
+        GameObject newObject = Instantiate(_projectile,ProjectileSpawnPoint);
         newObject.transform.parent = null;
         if(ShootingSound.isPlaying)
         {
@@ -32,10 +53,10 @@ public class PlayerGunComponent : MonoBehaviour
 
     internal void DropBomb()
     {
-        if(BomberAmmo != 0)
+        if(_bomberAmmo != 0)
         {
-            BomberAmmo = Mathf.Clamp(BomberAmmo - 1, 0, BomberMaxAmmo);
-            GameObject newObject = Instantiate(BombToSpawn, BombSpawnPoint);
+            _bomberAmmo = Mathf.Clamp(_bomberAmmo - 1, 0, _bomberMaxAmmo);
+            GameObject newObject = Instantiate(_bomb, BombSpawnPoint);
             newObject.transform.parent = null;
             UpdateBombUI();
         }
@@ -43,14 +64,14 @@ public class PlayerGunComponent : MonoBehaviour
 
     public void AddBomb()
     {
-        BomberAmmo = Mathf.Clamp(BomberAmmo + 1, 0, BomberMaxAmmo);
+        _bomberAmmo = Mathf.Clamp(_bomberAmmo + 1, 0, _bomberMaxAmmo);
         UpdateBombUI();
     }
 
 
     private void UpdateBombUI()
     {
-        ScoreKeeper.m_scoreKeeper.UpdateBombAmmo(BomberAmmo);
-        ScoreKeeper.m_scoreKeeper.GetGameplayUIManager().UpdateBombUI(BomberAmmo);
+        ScoreKeeper.m_scoreKeeper.UpdateBombAmmo(_bomberAmmo);
+        ScoreKeeper.m_scoreKeeper.GetGameplayUIManager().UpdateBombUI(_bomberAmmo);
     }
 }
