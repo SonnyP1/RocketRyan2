@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3595987698847385920}
   - {fileID: 7927018016519482287}
@@ -73,7 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a900f78277a714b46ae871aa0bffaff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 50
+  RotateSpeedY: 50
+  RotateSpeedX: 0
+  RotateSpeedZ: 0
 --- !u!1001 &1394258117517914227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125,6 +128,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5657755893695326487, guid: 92b05eb56692824478830b3d7a3f31dd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: daf3668358de3a743bc598d30c284ede, type: 2}
     - target: {fileID: 8202775737687667949, guid: 92b05eb56692824478830b3d7a3f31dd, type: 3}
       propertyPath: m_Name
       value: Energy_PE
@@ -199,6 +206,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6399ee0b1edfe1943adc54fbee84dfc4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 60f0fa2deacf9c145af68855b22413f8, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6399ee0b1edfe1943adc54fbee84dfc4, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: daf3668358de3a743bc598d30c284ede, type: 2}
     - target: {fileID: 919132149155446097, guid: 6399ee0b1edfe1943adc54fbee84dfc4, type: 3}
       propertyPath: m_Name
       value: Urine_LP

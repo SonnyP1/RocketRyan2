@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1697361532500188521}
   - {fileID: 2198053323623290586}
@@ -218,6 +219,7 @@ Transform:
   m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.773, z: -0}
   m_LocalScale: {x: 3.221904, y: 3.221904, z: 3.221904}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4404175832070378003}
   m_RootOrder: 1
@@ -233,6 +235,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -301,6 +304,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.000000010181, y: 0.888, z: -0.000000035684}
   m_LocalScale: {x: 0.82918173, y: 0.82918173, z: 0.82918173}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4404175832070378003}
   m_RootOrder: 0
@@ -324,6 +328,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -381,6 +386,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.698384, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4404175832070378003}
   m_RootOrder: 3
@@ -406,7 +412,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 8.58688
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -508,6 +514,7 @@ Transform:
   m_LocalRotation: {x: -0.70710707, y: -0, z: -0, w: 0.70710653}
   m_LocalPosition: {x: 0, y: 0.78, z: -0}
   m_LocalScale: {x: 2.7355, y: 2.7355, z: 2.7355}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4404175832070378003}
   m_RootOrder: 2
@@ -523,6 +530,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
