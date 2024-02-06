@@ -2,15 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// This script handle a health component of either a player or enemy
+/// NOTE : This script isn't controlling the health currenlty should change this also make audio go to audio manager
+/// </summary>
 public class HealthComponent : MonoBehaviour
 {
-    [SerializeField] LayerMask DamagableLayerMask;
-    [SerializeField] float MaxHP = 10f;
-    [SerializeField] AudioSource HurtSound;
-    GameplayUIManager _gameplayUIManager;
-    ScoreKeeper _scoreKeeper;
-    float _currentHP = 0;
+    [SerializeField] LayerMask m_DamagableLayerMask;
+    [SerializeField] float m_MaxHP = 10f;
+    [SerializeField] AudioSource m_HurtSound;
+
+
+    private GameplayUIManager _gameplayUIManager;
+    private ScoreKeeper _scoreKeeper;
+    private float _currentHP = 0;
 
     internal float GetCurrentHealth()
     {
@@ -32,23 +37,30 @@ public class HealthComponent : MonoBehaviour
 
         if(_currentHP == 0)
         {
-            _currentHP = MaxHP;
+            _currentHP = m_MaxHP;
         }
 
         UpdateHealthUI();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            AddToHealth(-1);
+        }
     }
     public void AddToHealth(float newValue)
     {
         if(newValue < 0)
         {
-            if(HurtSound != null)
+            if(m_HurtSound != null)
             {
-                HurtSound.Play();
+                m_HurtSound.Play();
             }
             _gameplayUIManager.HurtUIActive();
         }
 
-        _currentHP = Mathf.Clamp(_currentHP + newValue,0f,MaxHP);
+        _currentHP = Mathf.Clamp(_currentHP + newValue,0f,m_MaxHP);
         UpdateHealthUI();
         if(_currentHP == 0)
         {
@@ -60,14 +72,7 @@ public class HealthComponent : MonoBehaviour
     public void UpdateHealthUI()
     {
         _scoreKeeper.UpdateHealthOnGlobal(_currentHP);
-        _gameplayUIManager.UpdateHealthSlider(_currentHP / MaxHP);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        {
-            AddToHealth(-1);
-        }
+        _gameplayUIManager.UpdateHealthSlider(_currentHP / m_MaxHP);
     }
 
 }

@@ -4,33 +4,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Player Script manage player inputs and setup the player carts and stats from the scriptable object Cart class
+/// e.g. MoveInput - Fire Inputs
+/// NOTE: Prob should move audio to like a audio manager script or something
+/// </summary>
 public class Player : MonoBehaviour
 {
-    //Player Inputs
-    PlayerInputs _playerInput;
-    Vector2 _moveInput;
+    [Header("Player Audio")]
+    [SerializeField] AudioSource _healthSound;
+    [SerializeField] AudioSource _boostUpSound;
+    [SerializeField] AudioSource _bombPickUpSound;
 
-    //Player Cart
+
+    [Header("Player Stats")]
     [SerializeField] Cart _cart;
     [SerializeField] Transform _cartSpawnPoint;
 
     //Player Components
-    PlayerMovementComponent _playerMovementComp;
-    PlayerGunComponent _playerGunComponent;
+    private PlayerMovementComponent _playerMovementComp;
+    private PlayerGunComponent _playerGunComponent;
 
-    //Player Audio
-    [SerializeField] AudioSource HealthSound;
-    [SerializeField] AudioSource BoostUpSound;
-    [SerializeField] AudioSource BombPickUpSound;
+    //Player Inputs
+    private PlayerInputs _playerInput;
+    private Vector2 _moveInput;
 
 
+    #region Unity Functions
     private void OnEnable()
     {
         _playerInput.Enable();
-    }
-    private void OnDisable()
-    {
-        _playerInput.Disable();
     }
 
     private void Awake()
@@ -46,8 +49,27 @@ public class Player : MonoBehaviour
         InitComponents();
         SetUpPlayerInput();
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        // item sounds
+        if (other.CompareTag("Health"))
+        _healthSound.Play();
 
-    void InitComponents()
+        else if (other.CompareTag("BoostUp"))
+            _boostUpSound.Play();
+
+        else if (other.CompareTag("Bomb"))
+            _bombPickUpSound.Play();
+    }
+    private void OnDisable()
+    {
+        _playerInput.Disable();
+    }
+    #endregion
+
+    #region Custom Functions
+    //Init Components such as Movement & PlayerGun
+    private void InitComponents()
     {
         _playerMovementComp = GetComponent<PlayerMovementComponent>();
         _playerMovementComp.Speed = _cart.m_moveSpeed;
@@ -65,9 +87,7 @@ public class Player : MonoBehaviour
         _playerGunComponent.ProjectileSpawnPoint.name = "Projectile Spawn Point";
 
         Instantiate(_cart.m_cartModel, _cartSpawnPoint);
-
     }
-
     private GameObject SpawnTransform()
     {
         GameObject obj = new GameObject();
@@ -76,7 +96,9 @@ public class Player : MonoBehaviour
         obj.transform.localEulerAngles = Vector3.zero;
         return obj;
     }
+    #endregion
 
+    #region Inputs Functions
     private void SetUpPlayerInput()
     {
         _playerInput.Gameplay.Move.performed += OnMoveUpdated;
@@ -91,7 +113,6 @@ public class Player : MonoBehaviour
 
         _playerInput.Gameplay.Bomb.performed += OnBombPressed;
     }
-
     private void OnBombPressed(InputAction.CallbackContext obj)
     {
         _playerGunComponent.DropBomb();
@@ -126,19 +147,5 @@ public class Player : MonoBehaviour
     {
         _playerInput.Gameplay.Disable();
     }
-
-    // item sounds
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Health"))
-        HealthSound.Play();
-
-        else if (other.CompareTag("BoostUp"))
-            BoostUpSound.Play();
-
-        else if (other.CompareTag("Bomb"))
-            BombPickUpSound.Play();
-        
-    }
+    #endregion
 }

@@ -3,27 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script handles everything about the MOVEMENT of the player
+/// e.g. Boost - Rotation - Speed
+/// </summary>
 public class PlayerMovementComponent : MonoBehaviour
 {
+    [Header("Boost Serialize Fields")]
     [SerializeField] GameObject BoostEffect;
     [SerializeField] BoxCollider BoostCollider;
     [SerializeField] GameObject BoostFrontEffect;
     [SerializeField] AudioSource BoostSoundEffect;
 
-
+    //Movement Variables
     private float _speed = 5f;
     private float _rotspeed = 5f;
+
+    //Boost Variables
     private float _boostCurrent = 0f;
     private float boostMax = 100f;
     private Transform _boostTransform;
 
+    //Components Variables
     private CharacterController _characterController;
     private GameplayUIManager _gameplayUIManager;
-
+    
+    //Input Variables
     private Vector2 _moveInput;
     private bool _isBoostActive = false;
 
-    //Getters & Setters
+    #region Getters & Setters
     public float Speed
     {
         set { _speed = value; }
@@ -45,8 +54,10 @@ public class PlayerMovementComponent : MonoBehaviour
         set { _boostTransform = value; }
         get { return _boostTransform; }
     }
+    #endregion
 
-    void Start()
+    #region Unity Functions
+    private void Start()
     {
         _characterController = GetComponent<CharacterController>();
         _gameplayUIManager = FindObjectOfType<GameplayUIManager>();
@@ -69,7 +80,7 @@ public class PlayerMovementComponent : MonoBehaviour
         UpdateBoostUI();
     }
 
-    void Update()
+    private void Update()
     {
         UpdateRotation();
         if(_isBoostActive == true && _boostCurrent >= 0)
@@ -93,25 +104,31 @@ public class PlayerMovementComponent : MonoBehaviour
         BoostCollider.enabled = false;
         _characterController.Move(-transform.right * _speed * Time.deltaTime);
     }
+    #endregion
 
+    #region Custom Functions
     public void ActivateBoostFrontEffect()
     {
         BoostFrontEffect.SetActive(true);
     }
-
     public void AddBoost(float value)
     {
         _boostCurrent = Mathf.Clamp(_boostCurrent + value,0,boostMax);
         UpdateBoostUI();
     }
+    //UI
+    private void UpdateBoostUI()
+    {
+        _gameplayUIManager.UpdateBoostSlider(_boostCurrent / boostMax);
+    }
+    #endregion
 
-
+    #region Inputs Functions
     internal void UpdatedMoveInput(Vector2 moveInput)
     {
         _moveInput = new Vector2(moveInput.x, -moveInput.y);
     }
-    
-    void UpdateRotation()
+    private void UpdateRotation()
     {
         Vector3 PlayerDesiredDir = InputAxisToWorldDir(_moveInput);
         if (PlayerDesiredDir.magnitude == 0)
@@ -122,21 +139,9 @@ public class PlayerMovementComponent : MonoBehaviour
         Quaternion DesiredRotation = Quaternion.LookRotation(PlayerDesiredDir, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, DesiredRotation, Time.deltaTime * _rotspeed);
     }
-
-    internal void BoostDeactive()
-    {
-        _isBoostActive = false;
-    }
-
-    internal void BoostActive()
-    {
-        _isBoostActive = true;
-    }
-
-    void UpdateBoostUI()
-    {
-        _gameplayUIManager.UpdateBoostSlider(_boostCurrent / boostMax);
-    }
+    internal void StopMovement() => _speed = 0;
+    internal void BoostDeactive() => _isBoostActive = false;
+    internal void BoostActive() => _isBoostActive = true;
     private Vector3 InputAxisToWorldDir(Vector2 input)
     {
         Vector3 CameraRight = Camera.main.transform.right;
@@ -144,10 +149,5 @@ public class PlayerMovementComponent : MonoBehaviour
 
         return CameraRight * -input.y + -FrameUp * input.x;
     }
-
-    internal void StopMovement()
-    {
-        _speed = 0;
-    }
-
+    #endregion
 }

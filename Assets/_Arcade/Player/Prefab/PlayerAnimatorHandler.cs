@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script handles the Player Animation from the SpriteRenderer
+/// NOTE : This script will most likely either change or deleted as we are switching to 3D models for the character
+/// </summary>
 public class PlayerAnimatorHandler : MonoBehaviour
 {
     [SerializeField] SpriteRenderer InGameSprite;

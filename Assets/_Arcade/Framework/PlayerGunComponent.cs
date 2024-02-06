@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// This script Handles PlayerWeapon things such as firing, droping bombs and keep track of it's ammo
+/// e.g. Fire() - DropBomb()
+/// NOTE : Audio prob should be move to audio manager script or something
+/// </summary>
 public class PlayerGunComponent : MonoBehaviour
 {
     
@@ -14,7 +19,7 @@ public class PlayerGunComponent : MonoBehaviour
     private int _bomberAmmo = 3;
     private int _bomberMaxAmmo = 3;
 
-    //Getters & Setters
+    #region Getters & Setters
     public GameObject ProjectilePrefab
     {
         set { _projectile = value; }
@@ -38,10 +43,16 @@ public class PlayerGunComponent : MonoBehaviour
         set { _projectileSpawnPoint = value; }
         get { return _projectileSpawnPoint; }
     }
+    #endregion
 
     private void Start()
     {
         _bomberAmmo = ScoreKeeper.m_scoreKeeper.GetCurrentBombAmmo();
+        UpdateBombUI();
+    }
+    public void AddBomb()
+    {
+        _bomberAmmo = Mathf.Clamp(_bomberAmmo + 1, 0, _bomberMaxAmmo);
         UpdateBombUI();
     }
     internal void Fire()
@@ -54,7 +65,6 @@ public class PlayerGunComponent : MonoBehaviour
         }
         ShootingSound.Play();
     }
-
     internal void DropBomb()
     {
         if(_bomberAmmo != 0)
@@ -65,14 +75,6 @@ public class PlayerGunComponent : MonoBehaviour
             UpdateBombUI();
         }
     }
-
-    public void AddBomb()
-    {
-        _bomberAmmo = Mathf.Clamp(_bomberAmmo + 1, 0, _bomberMaxAmmo);
-        UpdateBombUI();
-    }
-
-
     private void UpdateBombUI()
     {
         ScoreKeeper.m_scoreKeeper.UpdateBombAmmo(_bomberAmmo);

@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script handles the BoostCollider for the Player
+/// </summary>
 public class BoostColliderScript : MonoBehaviour
 {
-
     [SerializeField] AudioSource RamSound;
     public GameObject CollideEffect;
 
