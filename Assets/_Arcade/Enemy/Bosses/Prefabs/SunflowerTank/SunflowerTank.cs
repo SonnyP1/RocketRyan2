@@ -8,15 +8,38 @@ using UnityEngine.UIElements;
 public class SunflowerTank : Enemy
 {
     public int m_hp;
-    public float m_movementSpeed;
     public float m_radius;
-    public float m_firerate;
 
     public GameObject m_projectile;
     public GameObject m_itemHelp;
     public Transform[] m_spawnPoints;
     public Transform[] m_itemSpawnPoints;
-    public float m_projectileSpeed;
+
+
+    //Phase Stats
+
+    private int Phase = 0;
+
+    public float PhaseTimer = 30.0f;
+    private float currentTime;
+
+    private float m_movementSpeed;
+    private float m_firerate;
+    private float m_projectileSpeed;
+
+    public float m_Ph1MovementSpeed;
+    public float m_Ph1Firerate;
+    public float m_Ph1ProjectileSpeed;
+
+    public float m_Ph2MovementSpeed;
+    public float m_Ph2Firerate;
+    public float m_Ph2ProjectileSpeed;
+
+    public float m_Ph3MovementSpeed;
+    public float m_Ph3Firerate;
+    public float m_Ph3ProjectileSpeed;
+
+    //
 
     private float _maxStepDistance = 200f;
 
@@ -28,6 +51,14 @@ public class SunflowerTank : Enemy
     private void Start()
     {
         _maxHP = m_hp;
+        currentTime = PhaseTimer;
+
+        //Phase 1 starts
+        Phase = 1;
+        m_movementSpeed = m_Ph1MovementSpeed;
+        m_firerate = m_Ph1Firerate;
+        m_projectileSpeed = m_Ph1ProjectileSpeed;
+        Debug.Log("Phase 1 initiated");
 
         base.Start();
 
@@ -55,6 +86,45 @@ public class SunflowerTank : Enemy
         {
             _dir = ReflectCast();
         }
+
+        // Phase Timer
+        if (currentTime > 0)
+        {
+            currentTime -= Time.deltaTime;
+        }
+        else
+        {
+            // change phase
+            if(Phase == 1)
+            {
+                Phase = 2;
+                m_movementSpeed = m_Ph2MovementSpeed;
+                m_firerate = m_Ph2Firerate;
+                m_projectileSpeed = m_Ph2ProjectileSpeed;
+                Debug.Log("Phase 2 initiated");
+
+            }
+            else if(Phase == 2)
+            {
+                Phase = 3;
+                m_movementSpeed = m_Ph3MovementSpeed;
+                m_firerate = m_Ph3Firerate;
+                m_projectileSpeed = m_Ph3ProjectileSpeed;
+                Debug.Log("Phase 3 initiated");
+            }
+            else
+            {
+                Phase = 1;
+                m_movementSpeed = m_Ph1MovementSpeed;
+                m_firerate = m_Ph1Firerate;
+                m_projectileSpeed = m_Ph1ProjectileSpeed;
+                Debug.Log("Phase 1 initiated again");
+            }
+            currentTime = PhaseTimer;
+            Debug.Log("Timer Reset");
+        }
+
+        // 
     }
 
     private void StartMovement()

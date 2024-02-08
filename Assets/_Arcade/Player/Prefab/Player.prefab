@@ -801,11 +801,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6bd28b2085b6642a1234b16841dcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthSound: {fileID: 5912425743269892252}
+  _boostUpSound: {fileID: 1833390942733636514}
+  _bombPickUpSound: {fileID: 1285668253731137282}
   _cart: {fileID: 11400000, guid: aa87ad1eec234f141ae492483c05caf8, type: 2}
   _cartSpawnPoint: {fileID: 3805941407480859697}
-  HealthSound: {fileID: 5912425743269892252}
-  BoostUpSound: {fileID: 1833390942733636514}
-  BombPickUpSound: {fileID: 1285668253731137282}
 --- !u!114 &-3532538941348327417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1658,7 +1658,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5608868932148723822}
-  m_LocalRotation: {x: 0.0011333509, y: 0.8346234, z: -0.5508172, w: 0.0017173052}
+  m_LocalRotation: {x: 0.0011333202, y: 0.83462346, z: -0.55081713, w: 0.001717259}
   m_LocalPosition: {x: -0.016999915, y: 9.201, z: 4.1310005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2065,7 +2065,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8394054597210508600}
-  m_LocalRotation: {x: 0.0011333509, y: 0.8346234, z: -0.5508172, w: 0.0017173052}
+  m_LocalRotation: {x: 0.0011333202, y: 0.83462346, z: -0.55081713, w: 0.001717259}
   m_LocalPosition: {x: -0.016999915, y: 9.201, z: 4.1310005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2409,11 +2409,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157611e41e504f5439b387411cdc7941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamagableLayerMask:
+  m_DamagableLayerMask:
     serializedVersion: 2
-    m_Bits: 8
-  MaxHP: 1000000
-  HurtSound: {fileID: 9059686681386811615}
+    m_Bits: 0
+  m_MaxHP: 10
+  m_HurtSound: {fileID: 0}
 --- !u!65 &709219449161110393
 BoxCollider:
   m_ObjectHideFlags: 0
