@@ -1658,7 +1658,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5608868932148723822}
-  m_LocalRotation: {x: 0.0011333202, y: 0.83462346, z: -0.55081713, w: 0.001717259}
+  m_LocalRotation: {x: 0.0011333963, y: 0.83462346, z: -0.55081713, w: 0.0017173744}
   m_LocalPosition: {x: -0.016999915, y: 9.201, z: 4.1310005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2065,7 +2065,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8394054597210508600}
-  m_LocalRotation: {x: 0.0011333202, y: 0.83462346, z: -0.55081713, w: 0.001717259}
+  m_LocalRotation: {x: 0.0011333963, y: 0.83462346, z: -0.55081713, w: 0.0017173744}
   m_LocalPosition: {x: -0.016999915, y: 9.201, z: 4.1310005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2412,7 +2412,7 @@ MonoBehaviour:
   m_DamagableLayerMask:
     serializedVersion: 2
     m_Bits: 0
-  m_MaxHP: 10
+  m_MaxHP: 50
   m_HurtSound: {fileID: 0}
 --- !u!65 &709219449161110393
 BoxCollider:
