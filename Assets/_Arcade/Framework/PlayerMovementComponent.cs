@@ -119,7 +119,8 @@ public class PlayerMovementComponent : MonoBehaviour
     //UI
     private void UpdateBoostUI()
     {
-        _gameplayUIManager.UpdateBoostSlider(_boostCurrent / boostMax);
+        Debug.Log("Wants to update boost UI");
+        //_gameplayUIManager.UpdateBoostSlider(_boostCurrent / boostMax);
     }
     #endregion
 

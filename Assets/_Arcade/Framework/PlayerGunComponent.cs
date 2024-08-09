@@ -47,7 +47,8 @@ public class PlayerGunComponent : MonoBehaviour
 
     private void Start()
     {
-        _bomberAmmo = ScoreKeeper.m_scoreKeeper.GetCurrentBombAmmo();
+        Debug.Log("PlayerGunComponent wants to update bomb UI off spawn");
+        //_bomberAmmo = ScoreKeeper.m_scoreKeeper.GetCurrentBombAmmo();
         UpdateBombUI();
     }
     public void AddBomb()
@@ -77,7 +78,8 @@ public class PlayerGunComponent : MonoBehaviour
     }
     private void UpdateBombUI()
     {
-        ScoreKeeper.m_scoreKeeper.UpdateBombAmmo(_bomberAmmo);
-        ScoreKeeper.m_scoreKeeper.GetGameplayUIManager().UpdateBombUI(_bomberAmmo);
+        Debug.Log("wants to update BombUI");
+        //ScoreKeeper.m_scoreKeeper.UpdateBombAmmo(_bomberAmmo);
+        //ScoreKeeper.m_scoreKeeper.GetGameplayUIManager().UpdateBombUI(_bomberAmmo);
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +10,7 @@ using UnityEngine.InputSystem;
 /// e.g. MoveInput - Fire Inputs
 /// NOTE: Prob should move audio to like a audio manager script or something
 /// </summary>
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     [Header("Player Audio")]
     [SerializeField] AudioSource _healthSound;
@@ -39,10 +40,14 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _playerInput = new PlayerInputs();
+        //Taking this out for right now because it instantly wants to jump to the next level
+        
+        /* 
         GameObject scoreKeeper = new GameObject();
         scoreKeeper.name = "ScoreKeeper";
         scoreKeeper.transform.parent = null;
         scoreKeeper.AddComponent<ScoreKeeper>();
+        */
     }
     private void Start()
     {
@@ -101,6 +106,7 @@ public class Player : MonoBehaviour
     #region Inputs Functions
     private void SetUpPlayerInput()
     {
+        // changed the name of OnMoveUpdated to include the ServerRPC tag, it requires the method name to include it
         _playerInput.Gameplay.Move.performed += OnMoveUpdated;
         _playerInput.Gameplay.Move.canceled += OnMoveUpdated;
 
@@ -138,10 +144,20 @@ public class Player : MonoBehaviour
         _playerMovementComp.BoostDeactive();
     }
 
+
+    // need to move the line for sending _moveInput to the movement component into a different function because we need a ServerRPC attributed function to handle the movement
+    // server side
     private void OnMoveUpdated(InputAction.CallbackContext obj)
     {
         _moveInput = obj.ReadValue<Vector2>();
-        _playerMovementComp.UpdatedMoveInput(_moveInput);
+        UpdateMovementServerRPC(_moveInput);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void UpdateMovementServerRPC(Vector2 input)
+    {
+
+        _playerMovementComp.UpdatedMoveInput(input);
     }
 
     public void DisablePlayerControls()

@@ -174,7 +174,8 @@ public class ScoreKeeper : MonoBehaviour
         player.GetComponent<PlayerMovementComponent>().StopMovement();
         player.GetComponent<PlayerAnimatorHandler>().PlayVictoryAnimation();
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(_levelIndex, LoadSceneMode.Single);
+        Debug.Log("Scorekeeper wants to change scenes");
+        //SceneManager.LoadScene(_levelIndex, LoadSceneMode.Single);
     }
     #endregion
 }
