@@ -120,6 +120,7 @@ public class Player : MonoBehaviour
 
     private void OnExitPressed(InputAction.CallbackContext obj)
     {
+        // might need to change this to a pausing mechanic rather than outright quitting the game
         Application.Quit();
     }
 

@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Arcade/Scenes/Levels/Boss2_Scene.unity
     guid: f4b8d0e1c47512648a7a86af7815eaa0
+  - enabled: 1
+    path: Assets/_Arcade/Scenes/MPTestScene.unity
+    guid: 874a1e76feaca254485e008bb1466642
   m_configObjects: {}
