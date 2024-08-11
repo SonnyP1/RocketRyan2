@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df9320a981bac24bbb34f522d789e67, type: 3}
   m_Name: BaseCart
   m_EditorClassIdentifier: 
-  m_moveSpeed: 10
+  m_moveSpeed: 15
   m_turnSpeed: 5
   m_projectileType: {fileID: 6957779417518157473, guid: 1f35f03c1deb0b7489021789df4e718c, type: 3}
   m_bombType: {fileID: 8167434674628163747, guid: f4b6a7d8b8f22144898a39d3498c98ba, type: 3}
