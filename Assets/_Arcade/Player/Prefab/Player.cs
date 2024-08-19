@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 /// <summary>
 /// Player Script manage player inputs and setup the player carts and stats from the scriptable object Cart class
@@ -25,7 +26,9 @@ public class Player : NetworkBehaviour
     //Player Components
     private PlayerMovementComponent _playerMovementComp;
     private PlayerGunComponent _playerGunComponent;
-
+    [Header("Camera Components")]
+    [SerializeField] private CinemachineVirtualCamera _vc;
+    [SerializeField] private AudioListener _listener;
     //Player Inputs
     private PlayerInputs _playerInput;
     private Vector2 _moveInput;
@@ -53,6 +56,21 @@ public class Player : NetworkBehaviour
     {
         InitComponents();
         SetUpPlayerInput();
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        // was done so that each player can see from their own attatched cameras
+        base.OnNetworkSpawn();
+        if(IsOwner)
+        {
+            _listener.enabled = true;
+            _vc.Priority = 10;
+        }
+        else
+        {
+            _vc.Priority = 0;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -106,7 +124,7 @@ public class Player : NetworkBehaviour
     #region Inputs Functions
     private void SetUpPlayerInput()
     {
-        // changed the name of OnMoveUpdated to include the ServerRPC tag, it requires the method name to include it
+        if(!IsOwner) return;
         _playerInput.Gameplay.Move.performed += OnMoveUpdated;
         _playerInput.Gameplay.Move.canceled += OnMoveUpdated;
 
@@ -145,7 +163,8 @@ public class Player : NetworkBehaviour
     }
 
 
-    // need to move the line for sending _moveInput to the movement component into a different function because we need a ServerRPC attributed function to handle the movement
+    // need to move the line for sending _moveInput to the movement component into a
+    // different function because we need a ServerRPC attributed function to handle the movement
     // server side
     private void OnMoveUpdated(InputAction.CallbackContext obj)
     {
@@ -156,7 +175,7 @@ public class Player : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void UpdateMovementServerRPC(Vector2 input)
     {
-
+        Debug.Log(input.ToString() + ": " + OwnerClientId);
         _playerMovementComp.UpdatedMoveInput(input);
     }
 

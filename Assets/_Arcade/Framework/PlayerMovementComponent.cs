@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 /// <summary>
 /// This script handles everything about the MOVEMENT of the player
 /// e.g. Boost - Rotation - Speed
 /// </summary>
-public class PlayerMovementComponent : MonoBehaviour
+public class PlayerMovementComponent : NetworkBehaviour
 {
     [Header("Boost Serialize Fields")]
     [SerializeField] GameObject BoostEffect;
@@ -16,7 +17,7 @@ public class PlayerMovementComponent : MonoBehaviour
     [SerializeField] AudioSource BoostSoundEffect;
 
     //Movement Variables
-    private float _speed = 5f;
+    [SerializeField]private float _speed = 5f;
     private float _rotspeed = 5f;
 
     //Boost Variables
@@ -82,6 +83,7 @@ public class PlayerMovementComponent : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner) return;
         UpdateRotation();
         if(_isBoostActive == true && _boostCurrent >= 0)
         {
