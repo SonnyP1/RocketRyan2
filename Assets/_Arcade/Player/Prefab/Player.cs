@@ -55,22 +55,23 @@ public class Player : NetworkBehaviour
     private void Start()
     {
         InitComponents();
-        SetUpPlayerInput();
     }
 
     public override void OnNetworkSpawn()
     {
         // was done so that each player can see from their own attatched cameras
-        base.OnNetworkSpawn();
-        if(IsOwner)
+        InitComponents();
+        /*if(IsOwner)
         {
+            InitComponents();
+            SetUpPlayerInput();
             _listener.enabled = true;
             _vc.Priority = 10;
         }
         else
         {
             _vc.Priority = 0;
-        }
+        }*/
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -94,6 +95,19 @@ public class Player : NetworkBehaviour
     //Init Components such as Movement & PlayerGun
     private void InitComponents()
     {
+        if(IsOwner)
+        {
+            Debug.Log("Is the Owner " + OwnerClientId);
+            _vc.Priority = 10;
+            _listener.enabled = true;
+            SetUpPlayerInput();
+        }
+        else
+        {
+            this.enabled = false;
+            _listener.enabled = false;
+            _vc.Priority = 0;
+        }
         _playerMovementComp = GetComponent<PlayerMovementComponent>();
         _playerMovementComp.Speed = _cart.m_moveSpeed;
         _playerMovementComp.RotSpeed = _cart.m_turnSpeed;
@@ -124,7 +138,8 @@ public class Player : NetworkBehaviour
     #region Inputs Functions
     private void SetUpPlayerInput()
     {
-        if(!IsOwner) return;
+        if (!IsOwner) return;
+
         _playerInput.Gameplay.Move.performed += OnMoveUpdated;
         _playerInput.Gameplay.Move.canceled += OnMoveUpdated;
 

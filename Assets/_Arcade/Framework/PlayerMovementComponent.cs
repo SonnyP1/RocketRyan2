@@ -83,28 +83,13 @@ public class PlayerMovementComponent : NetworkBehaviour
 
     private void Update()
     {
-        if (!IsOwner) return;
-        UpdateRotation();
-        if(_isBoostActive == true && _boostCurrent >= 0)
+        if (IsClient && !IsOwner)
         {
-            _boostCurrent -= 0.1f;
-            _characterController.Move(-transform.right * (_speed*2) * Time.deltaTime);
-            if(!BoostSoundEffect.isPlaying)
-            {
-                BoostSoundEffect.Play();
-                BoostSoundEffect.loop = true;
-            }
-            GameObject newBoostEffect = Instantiate(BoostEffect,_boostTransform);
-            newBoostEffect.transform.parent = null;
-            UpdateBoostUI();
-            BoostCollider.enabled = true;
-            BoostFrontEffect.SetActive(true);
-            return;
+            Debug.Log("Not the owner: " + OwnerClientId);
+            //return;
         }
-        BoostSoundEffect.loop = false;
-        BoostFrontEffect.SetActive(false);
-        BoostCollider.enabled = false;
-        _characterController.Move(-transform.right * _speed * Time.deltaTime);
+        UpdateMovement();
+        UpdateRotation();
     }
     #endregion
 
@@ -141,6 +126,31 @@ public class PlayerMovementComponent : NetworkBehaviour
 
         Quaternion DesiredRotation = Quaternion.LookRotation(PlayerDesiredDir, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, DesiredRotation, Time.deltaTime * _rotspeed);
+    }
+
+    private void UpdateMovement()
+    {
+        if (_moveInput == new Vector2(0f,0f)) return;
+        if (_isBoostActive == true && _boostCurrent >= 0)
+        {
+            _boostCurrent -= 0.1f;
+            _characterController.Move(-transform.right * (_speed * 2) * Time.deltaTime);
+            if (!BoostSoundEffect.isPlaying)
+            {
+                BoostSoundEffect.Play();
+                BoostSoundEffect.loop = true;
+            }
+            GameObject newBoostEffect = Instantiate(BoostEffect, _boostTransform);
+            newBoostEffect.transform.parent = null;
+            UpdateBoostUI();
+            BoostCollider.enabled = true;
+            BoostFrontEffect.SetActive(true);
+            return;
+        }
+        BoostSoundEffect.loop = false;
+        BoostFrontEffect.SetActive(false);
+        BoostCollider.enabled = false;
+        _characterController.Move(-transform.right * _speed * Time.deltaTime);
     }
     internal void StopMovement() => _speed = 0;
     internal void BoostDeactive() => _isBoostActive = false;

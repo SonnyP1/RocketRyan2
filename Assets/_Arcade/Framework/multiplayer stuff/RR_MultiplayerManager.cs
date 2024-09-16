@@ -15,7 +15,7 @@ public class RR_MultiplayerManager : NetworkBehaviour
 
     public void StartHost()
     {
-        NetworkManager.Singleton.ConnectionApprovalCallback += NetworkManager_ConnectionApprovalCallback;
+        //NetworkManager.Singleton.ConnectionApprovalCallback += NetworkManager_ConnectionApprovalCallback;
         Debug.Log("Start host called");
         NetworkManager.Singleton.StartHost();
     }
