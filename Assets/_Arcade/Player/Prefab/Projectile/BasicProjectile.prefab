@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8348ae496fb7d4ba47084433aeea4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 20
+  Speed: 40
   BlowUpSound: {fileID: 1112060190229562085}
   EnemyBlowUpSound: {fileID: 2771977105243405383}
   ProjectileEffect: {fileID: 8243138180131889124, guid: d1172c1ebb79c7148ac19a7e5dcd772b, type: 3}
@@ -476,7 +476,7 @@ Transform:
   m_GameObject: {fileID: 9194930465022434744}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.78787, y: 0.78787, z: 1.3637242}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4352534422957227405}
